@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npx gh-pages -d build"
   },
   "dependencies": {
     "@types/lodash.debounce": "^4.0.9",
