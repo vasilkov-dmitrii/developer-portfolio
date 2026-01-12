@@ -206,6 +206,7 @@ video {
 
 .back_menu {
   width: 55px;
+  height: 40px;
 
   display: flex;
   flex-wrap: wrap;
@@ -215,16 +216,7 @@ video {
   left: 130px;
   top: 77px;
   transition: 0.4s;
-
-  i {
-    display: block;
-    padding: 4px;
-    box-sizing: border-box;
-    margin: 3px 2px;
-    background: var(--main-yellow-text-color);
-    transition: 0.1s;
-    //   box-shadow: 1px 1px 1px 1px #efbb35;
-  }
+  
 
   .hidden_arrow {
     position: absolute;
