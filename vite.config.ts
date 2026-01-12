@@ -17,5 +17,5 @@ export default defineConfig({
     build: {
         outDir: 'build',
     },
-    base: 'https://dyzz24.github.io/portfolio/',
+    base: 'https://vasilkov-dmitrii.github.io/developer-portfolio/',
 })

@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0",
   "type": "module",
-  "homepage": "https://dyzz24.github.io/portfolio/",
+  "homepage": "https://vasilkov-dmitrii.github.io/developer-portfolio/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
