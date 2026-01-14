@@ -62,7 +62,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #efbb35;
+    background: rgba(14, 27, 44, 0.88);
     background: linear-gradient(140deg, rgba(14, 27, 44, 0.88), rgba(20, 40, 62, 0.88));
     opacity: 0.86;
     transition: 0.4s;
@@ -87,7 +87,7 @@
     color: var(--main-text-white-color);
     text-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
     text-align: center;
-    font-family: "Raleway-Regular";
+    font-family: "Raleway-Regular", Arial, sans-serif;
     font-size: 22px;
     z-index: 2;
   }
@@ -135,49 +135,53 @@
   top: 0;
   left: 0;
   width: auto;
+  max-width: calc(100% - 12px);
   padding: 0 20px;
-  box-sizing: border-box;
   height: 30px;
   line-height: 30px;
+  line-height: var(--space-xl);
   font-weight: 800;
   color: #0b1116;
   background: linear-gradient(135deg, var(--main-yellow-text-color), #9ae2ff);
-  font-family: "Raleway-Medium";
-  border-top-right-radius: 0px;
+  font-family: "Raleway-Medium", Arial, sans-serif;
   border-bottom-right-radius: 50px;
-  text-align: center;
+  border-bottom-right-radius: var(--space-4xl);
   font-size: 14px;
+  font-size: var(--font-sm);
   text-transform: uppercase;
   letter-spacing: -0.1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .work_tech_block {
   display: flex;
-  flex-wrap: wrap;
   margin-bottom: 6px;
+  margin-bottom: var(--space-sm);
   align-items: center;
   justify-content: center;
 
-  .work_btn {
     margin: 3px;
+    margin: var(--space-xs);
     cursor: default;
   }
 }
 
 .work_btn {
-  display: inline-block;
   padding: 10px 16px;
+  padding: var(--space-lg-plus) var(--space-lg-plus);
   box-sizing: border-box;
   background: linear-gradient(145deg, rgba(20, 40, 62, 0.95), rgba(12, 23, 38, 0.95));
   color: rgb(255, 255, 255);
   border-width: 1px 1px 2px 1px;
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  font-family: "Raleway-Bold";
+  border-radius: var(--space-md);
   font-size: 16px;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(125, 215, 255, 0.14);
   margin-right: 3px;
+  margin-right: var(--space-2xs);
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -225,8 +229,8 @@
   }
 
   &.btn_bottom {
-    position: absolute;
     bottom: 6px;
+    bottom: var(--space-xs);
   }
 
   &:hover {

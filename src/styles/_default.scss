@@ -2,7 +2,7 @@
   line-height: 1.5;
   font-size: $fs;
   letter-spacing: $ls;
-  font-family: "Raleway-Medium", serif;
+  font-family: "Raleway-Medium", Arial, sans-serif;
   font-weight: 700;
   color: var(--main-yellow-text-color);
 }
@@ -10,4 +10,8 @@
 @mixin paddings($tops, $lefts) {
   box-sizing: border-box;
   padding: $tops $lefts;
+}
+
+body, html {
+  font-family: "Raleway-Medium", Arial, sans-serif;
 }
