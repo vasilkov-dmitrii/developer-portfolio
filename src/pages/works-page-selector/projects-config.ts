@@ -11,6 +11,7 @@ import cwSlide5 from '../../img/cw5.png'
 import gsm from '../../img/gsm.jpg'
 import crmSlide1 from '../../img/crmSlide1.jpg'
 import crmSlide2 from '../../img/crmSlide2.jpg'
+import aiChatCover from '../../img/softek.png'
 
 export const projectsConfig: Partial<Record<Routes, IWorkPage>> = {
     [Routes.GOODOK]: {
@@ -114,5 +115,57 @@ export const projectsConfig: Partial<Record<Routes, IWorkPage>> = {
             'Implemented the authentication functionality for system login. The mail module is currently in beta testing and actively being improved.',
             'At present, the core features of the mail client are functioning smoothly.',
         ],
+    },
+    [Routes.AI_CHAT]: {
+        projectTitle: 'AI Chat Advisor Microservice',
+        projectDescription:
+            'Built an AI-powered conversational advisor embedded into the existing app via iframe for seamless handoff.',
+        slides: [aiChatCover],
+        technologiesTitle:
+            'The project is built using React, TypeScript, and the Vercel AI SDK v5, deployed on AWS.',
+        technologiesList: [
+            'React',
+            'TypeScript',
+            'Vercel AI SDK v5 (useChat)',
+            'AWS (S3, CloudFront, Route53)',
+            'GitLab CI/CD',
+            'REST and streaming responses',
+            'Iframe-based integration',
+        ],
+        contributionsToProjectList: [
+            'Implemented a responsive chat interface with real-time streaming replies using the Vercel AI SDK v5 useChat hook.',
+            'Shipped the feature as an isolated microservice and embedded it into the host application through a secure iframe.',
+            'Set up GitLab CI/CD to build, and deploy to AWS S3 with CloudFront and Route53 for global delivery.',
+            'Hardened the integration with graceful fallback states and connectivity checks for iframe communication.',
+        ],
+        projectLink: '',
+    },
+    [Routes.D_BANKING]: {
+        projectTitle: 'Access Softek · Frontend Engineer',
+        projectDescription:
+            'Frontend developer on the Internal Transfers team, owning UI delivery and integration quality for Access Softek clients.',
+        slides: [aiChatCover],
+        technologiesTitle:
+            'The project is built using React and TypeScript with GraphQL.',
+        technologiesList: [
+            'TypeScript',
+            'React',
+            'Apollo GraphQL',
+            'LLM Integration (Vercel AI SDK)',
+            'React Testing Library',
+            'Jest',
+            'Code Review',
+            'playwright/test (E2E)',
+            'Webpack',
+            'Vite',
+        ],
+        contributionsToProjectList: [
+            'Integrated the 3rd-party ProPay service while keeping the system stable and seamless for end users.',
+            'Built an end-to-end Playwright test suite that cut manual QA time by 30% and caught UI regressions early.',
+            'Raised automated test coverage to 80%, reducing reliance on manual regression passes.',
+            'Refactored and optimized the existing codebase to improve maintainability and stability.',
+            'Led and contributed in team brainstorming sessions to identify improvements and unblock delivery.',
+        ],
+        projectLink: '',
     },
 }

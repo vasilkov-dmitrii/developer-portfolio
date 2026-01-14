@@ -27,9 +27,16 @@ type WorkItem = {
 
 const worksConfig: WorkItem[] = [
     {
+        activeTitle: 'React · Vercel AI SDK · AWS',
+        name: 'AI-powered chat interface',
+        externalReference: '',
+        linkTo: Routes.AI_CHAT,
+        labelImg: softek,
+    },
+    {
         activeTitle: 'React · TypeScript · GraphQL',
         name: 'Access Digital® Banking platform',
-        linkTo: '',
+        linkTo: Routes.D_BANKING,
         labelImg: softek,
     },
     {

@@ -21,7 +21,7 @@ export const Menu: React.FC<IMenu> = ({
 
     return (
         <>
-            <div className="menu" onClick={() => setOpen(!open)}>
+            <div className={`menu ${open ? 'active' : ''}`} onClick={() => setOpen(!open)}>
                 <span></span>
                 <span></span>
                 <span></span>

@@ -1,6 +1,7 @@
 import React from 'react'
 import './footer.scss'
 import arrowUp from '../../img/up-arrow.svg'
+import cv from '../../assets/cv.pdf';
 
 export const Footer = () => {
     return (
@@ -44,6 +45,16 @@ export const Footer = () => {
                     target="_blank"
                 >
                     <span>LinkedIn</span>
+                </a>
+
+                <a
+                    href={cv}
+                    className="footer_links cv"
+                    target="_blank"
+                    rel="noreferrer"
+                    download
+                >
+                    <span>Download CV</span>
                 </a>
             </div>
 
