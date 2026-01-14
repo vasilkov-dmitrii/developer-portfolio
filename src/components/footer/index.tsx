@@ -65,6 +65,7 @@ export const Footer = () => {
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 src={arrowUp as string}
                 alt={'arrow up'}
+                loading="lazy"
             />
         </footer>
     )

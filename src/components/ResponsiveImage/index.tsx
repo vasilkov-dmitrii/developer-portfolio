@@ -13,7 +13,6 @@ export const ResponsiveImage: React.FC<IResponsiveImage> = ({
             useMap={useMap}
             src={src}
             alt={alt}
-            data-render={true}
             style={style}
             className={className}
             onClick={callback}

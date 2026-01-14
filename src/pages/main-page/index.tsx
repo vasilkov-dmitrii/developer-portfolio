@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, {  useRef } from 'react'
 import styles from './main.module.scss'
 import { Header } from './header'
 import { AboutSection } from './about-section'
@@ -7,12 +7,8 @@ import { Works } from './works'
 import { ExperienceEducationSection } from './experience-education-section'
 import { Skills } from './skills'
 import { Menu } from '../../components/menu'
-import { PreloaderStore } from '../../store/preloader-store'
-import { usePreloader } from '../../hooks/use-preloading'
 
 export const MainPage = () => {
-    const { dispatch } = useContext(PreloaderStore)
-    usePreloader(dispatch)
 
     const menuProps = {
         aboutRef: useRef<HTMLDivElement | null>(null),

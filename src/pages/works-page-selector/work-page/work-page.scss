@@ -114,7 +114,6 @@ $main-text-color: rgb(240, 238, 238);
 .slider__control_left {
   left: 0;
 
-
   &:hover {
     background: #252934;
     background: linear-gradient(
@@ -467,6 +466,23 @@ footer {
 
   video {
     height: auto;
+  }
+
+  .slider__control_left,
+  .slider__control_right {
+    svg {
+      fill-opacity: 0.7;
+    }
+
+
+    &:hover {
+      background: transparent;
+    }
+
+    &:hover .anim_svg {
+      animation: none;
+      fill-opacity: 0;
+    }
   }
 }
 
