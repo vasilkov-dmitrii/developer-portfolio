@@ -1,4 +1,4 @@
-import path from 'path'
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -6,10 +6,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src'),
+            '@': resolve(__dirname, './src'),
         },
     },
     plugins: [react()],
+    optimizeDeps: {
+        include: ['react', 'react-dom'],
+    },
     css: {
         modules: {
             scopeBehaviour: 'local',
@@ -21,6 +24,17 @@ export default defineConfig({
         },
     },
     build: {
+        target: 'es2019',
+        cssCodeSplit: true,
+        minify: 'esbuild',
+        assetsInlineLimit: 4096,
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    react: ['react', 'react-dom'],
+                },
+            },
+        },
         outDir: 'build',
     },
     base: 'https://vasilkov-dmitrii.github.io/developer-portfolio/',
