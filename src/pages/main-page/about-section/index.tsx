@@ -12,7 +12,7 @@ export const AboutSection: React.FC<IWithRefChildren> = ({ refElement }) => {
                         <span className="line_l"></span>
                         <div className="text_block">
                             <span>
-                                I am a senior Frontend Developer with 6+ years of
+                                I am a senior Frontend Developer with 7+ years of
                                 experience building performant, accessible web
                                 applications that scale.
                             </span>
