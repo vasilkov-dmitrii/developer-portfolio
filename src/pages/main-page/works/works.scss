@@ -131,6 +131,7 @@
 }
 
 .work_title {
+  max-width: calc(100% - 12px);
   position: absolute;
   top: 0;
   left: 0;
@@ -149,6 +150,9 @@
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: -0.1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .work_tech_block {
