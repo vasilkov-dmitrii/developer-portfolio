@@ -11,7 +11,7 @@ $main-text-color: rgb(240, 238, 238);
 
 
 .title {
-  font-family: "Raleway-SemiBoldItalic", Arial, sans-serif;
+  font-family: "Raleway-SemiBoldItalic";
   margin-top: 10px;
   font-style: italic;
   line-height: 1.55;
@@ -164,28 +164,29 @@ hr {
   width: 280px;
   background-color: var(--main-yellow-text-color);
   border: 0;
-  margin-bottom: var(--space-4);
+  margin: 0;
   margin-bottom: 16px;
+}
 
 .main_text {
-  font-family: "Raleway-Regular", Arial, sans-serif;
-  font-size: var(--font-md);
+  font-family: "Raleway-Regular";
   font-size: 18px;
+  color: $main-text-color;
   line-height: 1.6;
 }
 
 .technology {
-  padding-left: var(--space-12);
   padding-left: 20px;
+  box-sizing: border-box;
   display: grid;
-  gap: var(--space-xs);
   gap: 6px;
+
   li {
     color: $main-text-color;
     margin-bottom: 2px;
-    font-family: "Raleway-Regular", Arial, sans-serif;
-    font-size: var(--font-md);
+    font-family: "Raleway-Regular";
     font-size: 18px;
+    line-height: 1.6;
     list-style: circle;
   }
 
@@ -195,25 +196,25 @@ hr {
 }
 
 video {
-  height: 28.125rem;
   height: 450px;
   margin-top: 16px;
+
   background: #252934;
   background: var(--gradient-background);
 }
 
 .back_menu {
-  width: 3.4375rem;
   width: 55px;
   height: 40px;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   position: fixed;
-  left: var(--space-11xl);
   left: 130px;
   top: 77px;
+  transition: 0.4s;
 
 
   .hidden_arrow {
@@ -227,7 +228,6 @@ video {
     transition: 0.4s;
     opacity: 1;
   }
-}
 
 
   i:nth-child(1) {
@@ -278,38 +278,39 @@ video {
   to {
     opacity: 0;
   }
+}
 
 .link_btn {
-  display: inline-block;
   //   text-transform: uppercase;
-  padding: var(--space-2xs) var(--space-md);
+  display: inline-block;
   padding: 2px 10px;
-  border-radius: var(--space-10);
+  box-sizing: border-box;
   border-radius: 10px;
-  box-shadow: 0 var(--space-md-plus) var(--space-3xl) rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(125, 215, 255, 0.14);
+  background: linear-gradient(135deg, #112437, #1b314a);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
-  font-family: "Raleway-Bold";
+
   // letter-spacing: 2px;
 
-  font-family: "Raleway-Bold", Arial, sans-serif;
+  font-family: "Raleway-Bold";
   font-size: 16px;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: 0.2s;
   z-index: 2;
-  margin-left: var(--space-md);
   margin-left: 16px;
+  background: #112437;
 
   span {
     z-index: 2;
     position: relative;
     color: rgb(250, 248, 249);
     letter-spacing: 1.5px;
-    max-width: 9.375rem;
     max-width: 150px;
-    padding: 0 var(--space-12);
+    overflow: hidden;
     padding: 0 12px;
+    box-sizing: border-box;
   }
 
   &:hover::before {
@@ -359,8 +360,8 @@ video {
 
     .link_btn {
       margin-left: 0px;
-      margin-top: var(--space-sm);
       margin-top: 8px;
+    }
   }
 }
 
@@ -370,49 +371,49 @@ footer {
 
 @media screen and (max-width: 1680px) {
   .work__info {
-    @include paddings(var(--space-8xl), var(--space-12xl));
     @include paddings(77px, 180px);
+  }
 
   .slider_block {
-    width: 48.75rem;
     width: 780px;
     height: 500px;
+    align-self: center;
   }
 
   .back_menu {
-    left: 5.625rem;
     left: 90px;
     top: 77px;
+  }
 }
 
 @media screen and (max-width: 1366px) {
   .slider__control_left svg,
   .slider__control_right svg {
-    width: 1rem;
     width: 16px;
     height: 34px;
+  }
 
   .slider_block {
     width: 90%;
-    height: 32.5rem;
     height: 520px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
   .work__info {
-    @include paddings(2.125rem, 6.25rem);
     @include paddings(34px, 100px);
     gap: 10px;
+  }
 
   .slider_block {
-    max-width: 40rem;
     max-width: 640px;
-    height: 25.9375rem;
+    width: 100%;
     height: 415px;
+  }
 
   .main_text {
-    margin-bottom: var(--space-sm);
     margin-bottom: 8px;
+  }
 
   .technology li {
     margin-bottom: 0;
@@ -421,47 +422,47 @@ footer {
 
 @media screen and (max-width: 1100px) {
   .work__info {
-    @include paddings(var(--space-5xl), var(--space-7xl));
     @include paddings(34px, 60px);
+  }
 
   .back_menu {
-    left: 0.25rem;
     left: 4px;
     top: 34px;
+  }
 
   h3 {
-    margin-bottom: var(--space-sm);
     margin-bottom: 10px;
     font-size: 24px;
+  }
 
   h2 {
-    font-size: var(--font-lg);
     font-size: 24px;
+  }
 
   .title {
-    font-size: var(--font-md);
     font-size: 18px;
+    letter-spacing: 1px;
   }
 
   hr {
-    width: 10rem;
     width: 160px;
+  }
 
   .main_text,
   .technology li {
-    font-size: var(--font-md);
     font-size: 16px;
+  }
 }
 
 @media screen and (max-width: 900px) {
   footer {
-    padding-left: var(--space-7xl);
     padding-left: 60px;
+  }
 
   .slider_block {
     width: 90%;
-    height: 23.125rem;
     height: 370px;
+  }
 
   video {
     height: auto;
@@ -488,12 +489,12 @@ footer {
 @media screen and (max-width: 748px) {
   .slider_block {
     width: 100%;
-    height: 20rem;
     height: 320px;
+  }
 
   .work__info {
-    gap: var(--space-sm);
     gap: 8px;
+  }
 }
 
 @media screen and (max-width: 648px) {
@@ -505,34 +506,34 @@ footer {
 
   .link_btn {
     margin-left: 0px;
-    margin-top: var(--space-sm);
     margin-top: 6px;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .slider_block {
-    height: 17.5rem;
     height: 280px;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .work__info,
   footer {
-    padding: var(--space-2xl) var(--space-lg-plus);
     padding: 25px 15px;
     gap: 6px;
+  }
 
   .main_text {
-    margin-bottom: var(--space-3xl);
     margin-bottom: 16px;
+  }
 
   .link_btn {
-    font-size: var(--font-sm);
     font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 440px) {
   .slider_block {
-    height: 15rem;
     height: 240px;
+  }
 }

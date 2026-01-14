@@ -5,7 +5,7 @@ footer {
   height: 250px;
 
   background: linear-gradient(145deg, rgba(12, 18, 28, 0.9), rgba(16, 26, 40, 0.95));
-  border-top: 1px solid var(--color-border-subtle);
+  border-top: 1px solid var(--border-subtle);
 
   display: flex;
   // align-items: center;
@@ -24,7 +24,7 @@ footer {
   left: 50%;
   margin-right: -50%;
   transform: translateX(-50%);
-  background-color: var(--color-accent) !important;
+  background-color: var(--main-yellow-text-color) !important;
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
@@ -50,7 +50,7 @@ footer {
   text-indent: 0;
   z-index: 3;
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--color-border-subtle);
+  border: 1px solid var(--border-subtle);
 
   span {
     z-index: 2;
@@ -82,7 +82,7 @@ footer {
   }
 
   &.cv {
-    background: var(--gradient-warm);
+    background: linear-gradient(135deg, #d17b3d, #e39b5f);
     border-color: rgba(255, 255, 255, 0.25);
     color: #0c121c;
 
@@ -111,7 +111,7 @@ footer {
 
   p {
     font-family: "Raleway-Regular";
-    color: var(--color-text-primary);
+    color: var(--main-text-white-color);
     font-size: 18px;
     margin-top: 6px;
   }

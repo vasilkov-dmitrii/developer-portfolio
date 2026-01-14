@@ -1,28 +1,13 @@
 @use './styles/_default.scss' as *;
 
 :root {
-  --color-text-primary: #f4f6ef;
-  --color-accent: #7dd7ff;
-  --color-accent-warm: #f2b37c;
-  --color-surface: rgba(22, 30, 44, 0.9);
-  --color-surface-strong: #112437;
-  --color-surface-alt: #0f1723;
-  --color-surface-dark: #0b1116;
-  --color-surface-elevated: rgba(30, 42, 60, 0.88);
-  --color-border-subtle: rgba(255, 255, 255, 0.12);
-  --color-shadow-strong: rgba(0, 0, 0, 0.35);
-  --gradient-surface: linear-gradient(145deg, #0f1723 0%, #0d1828 45%, #0b0f1b 100%);
-  --gradient-accent: linear-gradient(135deg, var(--color-accent), #9ae2ff);
-  --gradient-warm: linear-gradient(135deg, #d17b3d, #e39b5f);
-  --gradient-overlay: radial-gradient(circle at 20% 25%, rgba(125, 215, 255, 0.12), rgba(112, 96, 255, 0.08) 38%, transparent 55%),
+  --main-text-white-color: #f4f6ef;
+  --main-yellow-text-color: #7dd7ff;
+  --surface-color: rgba(22, 30, 44, 0.9);
+  --surface-elevated: rgba(30, 42, 60, 0.88);
+  --gradient-background: radial-gradient(circle at 20% 25%, rgba(125, 215, 255, 0.12), rgba(112, 96, 255, 0.08) 38%, transparent 55%),
     radial-gradient(circle at 80% 15%, rgba(255, 159, 124, 0.12), rgba(125, 215, 255, 0.06) 36%, transparent 55%),
-    var(--gradient-surface);
-  /* Legacy bridges to keep older SCSS working while centralizing palette */
-  --main-text-white-color: var(--color-text-primary);
-  --main-yellow-text-color: var(--color-accent);
-  --border-subtle: var(--color-border-subtle);
-  --surface-color: var(--color-surface);
-  --surface-elevated: var(--color-surface-elevated);
+    linear-gradient(145deg, #0f1723 0%, #0d1828 45%, #0b0f1b 100%);
 }
 
 body {
@@ -59,7 +44,8 @@ ul {
 main {
   width: 100%;
   box-sizing: border-box;
-  background: var(--gradient-overlay);
+  background: #252934;
+  background: var(--gradient-background);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -69,7 +55,7 @@ h2 {
   font-size: 30px;
   letter-spacing: 4px;
   font-family: "Raleway-Bold";
-  color: var(--color-accent);
+  color: var(--main-yellow-text-color);
 }
 
 .anim_span {
@@ -127,7 +113,7 @@ footer {
 .separator {
   height: 150px;
   width: 100%;
-  border-bottom: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid #f1f1f1;
   background: url('@/img/separator.png') no-repeat fixed center;
   background-size: cover;
   display: flex;
@@ -147,6 +133,7 @@ footer {
     height: 101%;
     left: 0;
     top: 0;
+    background: rgb(27, 6, 15);
     background: linear-gradient(to right, rgb(27, 6, 15), #112437);
     opacity: 0.7;
     z-index: 1;
@@ -163,14 +150,15 @@ $main_color: rgb(236, 228, 228);
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 8px;
   border-radius: 8px;
-  background-color: var(--color-accent);
+  background-color: var(--main-yellow-text-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-accent);
+  background-color: var(--main-yellow-text-color);
 }
 
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 
