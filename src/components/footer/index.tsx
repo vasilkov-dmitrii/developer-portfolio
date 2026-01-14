@@ -21,6 +21,7 @@ export const Footer = () => {
                     href="https://github.com/dyzz24"
                     className="footer_links gh"
                     target="_blank"
+                    rel="noreferrer noopener"
                 >
                     <svg
                         height="32"
@@ -40,9 +41,10 @@ export const Footer = () => {
                 </a>
 
                 <a
-                    href="https://www.linkedin.com/in/dmitry-vasilkov-a12b98172/"
+                    href="https://www.linkedin.com/in/dmitrii-vasilkov-a12b98172/"
                     className="footer_links ln"
                     target="_blank"
+                    rel="noreferrer noopener"
                 >
                     <span>LinkedIn</span>
                 </a>

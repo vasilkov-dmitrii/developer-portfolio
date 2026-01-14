@@ -11,7 +11,7 @@ import masterscada from '../../../img/masterscada.jpg'
 import kngdy from '../../../img/kingdy.jpg'
 import mpoc from '../../../img/masteropc.jpg'
 import header from '../../../img/header.jpg'
-import { FRRImg } from '../../../components/FRRImg'
+import { ResponsiveImage } from '../../../components/ResponsiveImage'
 import investing from '../../../img/investing.png'
 import softek from '../../../img/softek.png'
 import dcCms from '../../../img/dc_cms.jpg'
@@ -117,7 +117,7 @@ export const Works: React.FC<IWithRefChildren> = ({ refElement }) => {
             <div className={'workWrapper'}>
                 {works.map((el) => (
                     <div className={'work__prev'} key={el.name}>
-                        <FRRImg src={el.labelImg as string} alt={el.name} />
+                        <ResponsiveImage src={el.labelImg as string} alt={el.name} />
                         {el.activeTitle && (
                             <div className="work_title active">
                                 {el.activeTitle}

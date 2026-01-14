@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "./default.scss" as *;
 
 $section-padding-desktop: 144px 260px;
@@ -9,7 +10,7 @@ $section-padding-900: 40px 40px;
 $section-padding-768: 20px 10px;
 
 section {
-  @include paddings(nth($section-padding-desktop, 1), nth($section-padding-desktop, 2));
+  @include paddings(list.nth($section-padding-desktop, 1), list.nth($section-padding-desktop, 2));
   box-sizing: border-box;
 }
 
@@ -38,7 +39,7 @@ section {
 
 @media screen and (max-width: 1680px) {
   section {
-    @include paddings(nth($section-padding-1680, 1), nth($section-padding-1680, 2));
+    @include paddings(list.nth($section-padding-1680, 1), list.nth($section-padding-1680, 2));
   }
 
   .work__prev {
@@ -60,7 +61,7 @@ section {
   }
 
   section {
-    @include paddings(nth($section-padding-1500, 1), nth($section-padding-1500, 2));
+    @include paddings(list.nth($section-padding-1500, 1), list.nth($section-padding-1500, 2));
   }
   .separator {
     height: 130px;
@@ -81,7 +82,7 @@ section {
     font-size: 18px;
   }
   section {
-    @include paddings(nth($section-padding-1400, 1), nth($section-padding-1400, 2));
+    @include paddings(list.nth($section-padding-1400, 1), list.nth($section-padding-1400, 2));
   }
   h2,
   .separator h2 {
@@ -143,7 +144,7 @@ section {
 
 @media screen and (max-width: 1100px) {
   section {
-    @include paddings(nth($section-padding-1100, 1), nth($section-padding-1100, 2));
+    @include paddings(list.nth($section-padding-1100, 1), list.nth($section-padding-1100, 2));
   }
 
   .all_skills {
@@ -206,7 +207,7 @@ section {
   }
 
   section {
-    @include paddings(nth($section-padding-900, 1), nth($section-padding-900, 2));
+    @include paddings(list.nth($section-padding-900, 1), list.nth($section-padding-900, 2));
   }
   h2,
   .separator h2 {
@@ -321,7 +322,7 @@ section {
   }
 
   section {
-    @include paddings(nth($section-padding-768, 1), nth($section-padding-768, 2));
+    @include paddings(list.nth($section-padding-768, 1), list.nth($section-padding-768, 2));
   }
 
   .line_l {

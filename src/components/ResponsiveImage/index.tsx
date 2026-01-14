@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const FRRImg: React.FC<IFRRImg> = ({
+export const ResponsiveImage: React.FC<IResponsiveImage> = ({
     src,
     style,
     useMap,
@@ -22,7 +22,7 @@ export const FRRImg: React.FC<IFRRImg> = ({
     )
 }
 
-export interface IFRRImg {
+export interface IResponsiveImage {
     src: string
     style?: React.CSSProperties
     useMap?: string

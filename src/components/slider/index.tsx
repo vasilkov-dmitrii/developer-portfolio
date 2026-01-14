@@ -1,45 +1,54 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { FRRImg } from '../FRRImg'
+import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react'
+import { ResponsiveImage } from '../ResponsiveImage'
 
 const calculateCurrentStep = (step: number, arrLength: number) => {
     const currentStep: number = step % arrLength
     if (currentStep === 0) return 0
-    else if (currentStep < 0) return arrLength + currentStep
-    else return step > 0 ? Math.abs(currentStep) : arrLength - 1 + currentStep
+    if (currentStep < 0) return arrLength + currentStep
+    return step > 0 ? Math.abs(currentStep) : arrLength - 1 + currentStep
 }
 
-let touchDirection = 0
 export const Slider: React.FC<ISlider> = ({ slides }) => {
     const moveSliderRef = useRef<HTMLDivElement | null>(null)
+    const touchStartX = useRef<number | null>(null)
     const [step, setStep] = useState(0)
 
-    const handleClick = (value: number) => {
-        const currentStep = calculateCurrentStep(step + value, slides.length)
-        setStep(currentStep)
-    }
+    const totalSlides = slides.length
+
+    const clampedStep = useMemo(
+        () => (totalSlides ? calculateCurrentStep(step, totalSlides) : 0),
+        [step, totalSlides]
+    )
+
+    const handleClick = useCallback(
+        (value: number) => {
+            if (!totalSlides) return
+            setStep((prev) => calculateCurrentStep(prev + value, totalSlides))
+        },
+        [totalSlides]
+    )
 
     const touchStartEvent = (e: React.TouchEvent<HTMLDivElement>) => {
-        touchDirection = e.touches[0].clientX
+        touchStartX.current = e.touches[0].clientX
     }
 
     const touchMoveEvent = (e: React.TouchEvent<HTMLDivElement>) => {
-        if (!touchDirection) return
+        if (touchStartX.current === null) return
         const currentTouch = e.touches[0].clientX
-        const direction = touchDirection - currentTouch
-        if (direction > 0) {
-            handleClick(1)
-        } else {
-            handleClick(-1)
-        }
-        touchDirection = 0
+        const direction = touchStartX.current - currentTouch
+        handleClick(direction > 0 ? 1 : -1)
+        touchStartX.current = null
     }
 
     useEffect(() => {
+        if (!moveSliderRef.current || !totalSlides) return
         requestAnimationFrame(() => {
             if (moveSliderRef.current)
-                moveSliderRef.current.style.transform = `translateX(${-step * 100}%)`
+                moveSliderRef.current.style.transform = `translateX(${-clampedStep * 100}%)`
         })
-    }, [step])
+    }, [clampedStep, totalSlides])
+
+    if (!totalSlides) return null
 
     return (
         <>
@@ -48,10 +57,12 @@ export const Slider: React.FC<ISlider> = ({ slides }) => {
                 onTouchStart={touchStartEvent}
                 onTouchMove={touchMoveEvent}
             >
-                {slides.length > 1 && (
+                {totalSlides > 1 && (
                     <div
                         className="slider__control_left"
                         onClick={() => handleClick(-1)}
+                        role="button"
+                        aria-label="Previous slide"
                     >
                         <svg
                             width="22"
@@ -73,18 +84,20 @@ export const Slider: React.FC<ISlider> = ({ slides }) => {
                 )}
                 <div className="slider_wrapper" ref={moveSliderRef}>
                     {slides.map((el) => (
-                        <FRRImg
+                        <ResponsiveImage
                             key={el}
                             alt={'slide'}
                             src={el}
-                            className="slid"
+                            className="slide"
                         />
                     ))}
                 </div>
-                {slides.length > 1 && (
+                {totalSlides > 1 && (
                     <div
                         className="slider__control_right"
                         onClick={() => handleClick(1)}
+                        role="button"
+                        aria-label="Next slide"
                     >
                         <svg
                             width="22"
@@ -106,13 +119,15 @@ export const Slider: React.FC<ISlider> = ({ slides }) => {
                 )}
             </div>
 
-            {slides.length > 1 && (
+            {totalSlides > 1 && (
                 <div className="slider__btn_block">
                     {slides.map((_, idx) => (
                         <div
                             key={idx}
-                            className={`slider_btn   ${idx === step ? 'active' : ''}`}
+                            className={`slider_btn ${idx === clampedStep ? 'active' : ''}`}
                             onClick={() => setStep(idx)}
+                            role="button"
+                            aria-label={`Go to slide ${idx + 1}`}
                         />
                     ))}
                 </div>
