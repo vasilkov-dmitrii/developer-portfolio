@@ -177,6 +177,10 @@ section {
 
 @media screen and (max-width: 900px) {
 
+  .experience__row {
+    margin-top: 12px;
+  }
+
 
   .my_skills {
     position: relative;
@@ -369,11 +373,6 @@ section {
 
   .experience__name {
     width: 200px;
-    border-top: 2px solid #e3e3e3;
-  }
-
-  .experience__row:first-child .experience__name {
-    border-top: 0px solid #e3e3e3;
   }
 
   .experience__runner {
@@ -438,7 +437,7 @@ section {
     padding: 0;
 
     &:last-child {
-      border-bottom: 0px solid #1d3e5f;
+      border-bottom: 0px solid var(--border-contrast);
     }
   }
 

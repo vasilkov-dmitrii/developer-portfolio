@@ -27,7 +27,8 @@
   .fill {
     width: 0;
     height: 100%;
-    background: linear-gradient(135deg, rgba(20, 40, 62, 0.95), rgba(12, 23, 38, 0.95));
+    background: var(--button-surface-fallback);
+    background: var(--button-surface);
     transition: 0.4s;
   }
 
@@ -97,10 +98,11 @@
 .name {
   width: 25%;
   height: 100%;
-  background: linear-gradient(135deg, var(--main-yellow-text-color), #9ae2ff);
+  background: var(--gradient-accent-fallback);
+  background: var(--gradient-accent);
   font-size: 12px;
   font-family: "Raleway-Medium", serif;
-  color: #0b1116;
+  color: var(--color-text-contrast);
   letter-spacing: 0;
   line-height: 30px;
   text-align: center;

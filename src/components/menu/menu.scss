@@ -1,3 +1,4 @@
+
 .menu {
   position: fixed;
   right: 0;
@@ -21,32 +22,33 @@
   }
 
   &:hover {
-    background: #112437;
+    background: var(--surface-navy);
+    background: var(--surface-navy);
   }
 
   &:hover span:nth-child(1) {
     transform: translateX(-6px);
-    background: white;
+    background: var(--main-text-white-color);
   }
   &:hover span:nth-child(3) {
     transform: translateX(-6px);
-    background: white;
+    background: var(--main-text-white-color);
   }
 
   &:hover span:nth-child(2) {
     transform: translateX(6px);
-    background: white;
+    background: var(--main-text-white-color);
   }
 
   &.active {
-    background: #112437;
+    background: var(--surface-navy);
 
     span:nth-child(1) {
       transform: rotate(45deg);
     }
     span:nth-child(3) {
       transform: translateX(-6px);
-      background: white;
+      background: var(--main-text-white-color);
       display: none;
     }
 
@@ -61,7 +63,7 @@
   top: 100px;
   right: 0;
   width: 100px;
-  background: #112437;
+  background: var(--surface-navy);
   display: none;
   flex-direction: column;
   align-items: center;
@@ -100,7 +102,7 @@
       padding: 0 12px;
       box-sizing: border-box;
       height: 100%;
-      background: #112437;
+      background: var(--surface-navy);
       white-space: nowrap;
       opacity: 0;
       animation: svg_menu_anim 0.2s linear forwards;
@@ -133,7 +135,7 @@
   svg {
     width: 25px;
     height: 20px;
-    fill: white;
+    fill: var(--main-text-white-color);
     margin-top: 5px;
     transition: 0.4s;
     // opacity: 0.8;

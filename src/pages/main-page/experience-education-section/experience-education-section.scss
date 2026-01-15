@@ -16,7 +16,7 @@
     display: flex;
     transition: 0.4s;
     box-sizing: border-box;
-    border-bottom: 1px solid var(--border-subtle);
+    border: 1px solid var(--border-subtle);
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(4px);
     padding: 2px 12px;
@@ -27,7 +27,6 @@
   &__name {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid var(--border-subtle);
     padding: 12px 0;
     text-align: left;
     justify-content: center;
@@ -71,7 +70,6 @@
   }
 
   &__more {
-    border-top: 1px solid var(--border-subtle);
     padding: 12px 0;
     flex: 1;
 

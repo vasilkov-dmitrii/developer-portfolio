@@ -1,14 +1,5 @@
+@use './styles/_colors.scss';
 @use './styles/_default.scss' as *;
-
-:root {
-  --main-text-white-color: #f4f6ef;
-  --main-yellow-text-color: #7dd7ff;
-  --surface-color: rgba(22, 30, 44, 0.9);
-  --surface-elevated: rgba(30, 42, 60, 0.88);
-  --gradient-background: radial-gradient(circle at 20% 25%, rgba(125, 215, 255, 0.12), rgba(112, 96, 255, 0.08) 38%, transparent 55%),
-    radial-gradient(circle at 80% 15%, rgba(255, 159, 124, 0.12), rgba(125, 215, 255, 0.06) 36%, transparent 55%),
-    linear-gradient(145deg, #0f1723 0%, #0d1828 45%, #0b0f1b 100%);
-}
 
 body {
   margin: 0;
@@ -39,12 +30,10 @@ ul {
   padding: 0;
 }
 
-
-
 main {
   width: 100%;
   box-sizing: border-box;
-  background: #252934;
+  background: var(--gradient-page-fallback);
   background: var(--gradient-background);
   display: flex;
   flex-direction: column;
@@ -68,8 +57,6 @@ section,
 footer {
   width: 100%;
 }
-
-
 
 @keyframes anim_span {
   from {
@@ -113,7 +100,7 @@ footer {
 .separator {
   height: 150px;
   width: 100%;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid var(--border-light);
   background: url('@/img/separator.png') no-repeat fixed center;
   background-size: cover;
   display: flex;
@@ -133,15 +120,15 @@ footer {
     height: 101%;
     left: 0;
     top: 0;
-    background: rgb(27, 6, 15);
-    background: linear-gradient(to right, rgb(27, 6, 15), #112437);
+    background: var(--surface-navy);
+    background: linear-gradient(to right, rgb(27, 6, 15), var(--surface-navy));
     opacity: 0.7;
     z-index: 1;
   }
 }
 
-$main_color: rgb(236, 228, 228);
-
+// legacy color token retained for compatibility
+$main_color: var(--color-text-primary);
 
 ::-webkit-scrollbar-track {
   background-color: inherit;
@@ -160,5 +147,3 @@ $main_color: rgb(236, 228, 228);
 ::-webkit-scrollbar {
   width: 6px;
 }
-
-
