@@ -63,9 +63,6 @@ section {
   section {
     @include paddings(list.nth($section-padding-1500, 1), list.nth($section-padding-1500, 2));
   }
-  .separator {
-    height: 130px;
-  }
 }
 
 
@@ -515,13 +512,8 @@ section {
 
   h2,
   .separator h2 {
-    font-size: 18px;
     text-align: center;
     letter-spacing: 2px;
-  }
-
-  .separator {
-    margin-top: 12px;
   }
 
   header {
