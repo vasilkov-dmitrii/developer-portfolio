@@ -7,7 +7,7 @@
   background: linear-gradient(145deg, rgba(12, 18, 28, 0.92), rgba(16, 26, 40, 0.96));
 
   p {
-    font-family: "Raleway-Regular";
+    font-family: "Raleway-Regular", serif, sans-serif;
     color: var(--main-text-white-color);
   }
 
@@ -38,7 +38,7 @@
     }
 
     span {
-      font-family: "Raleway-SemiBoldItalic";
+      font-family: "Raleway-SemiBoldItalic", serif, sans-serif;
       font-size: 18px;
       color: rgba(232, 236, 244, 0.85);
     }
@@ -76,14 +76,14 @@
     h3 {
       color: var(--main-yellow-text-color);
       font-size: 24px;
-      font-family: "Raleway-Regular";
+      font-family: "Raleway-Regular", serif, sans-serif;
       margin-bottom: 16px;
       display: inline-block;
       border-bottom: 1px solid var(--border-subtle);
     }
 
     p {
-      font-family: "Raleway-Medium";
+      font-family: "Raleway-Medium", serif, sans-serif;
       font-size: 18px;
       margin-bottom: 6px;
       color: var(--main-text-white-color);

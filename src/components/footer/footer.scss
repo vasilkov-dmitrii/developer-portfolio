@@ -39,7 +39,7 @@ footer {
   cursor: pointer;
   display: flex;
   color: var(--main-text-white-color);
-  font-family: "Raleway-Regular";
+  font-family: "Raleway-Regular", serif, sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
   font-size: 18px;
@@ -110,7 +110,7 @@ footer {
   width: auto;
 
   p {
-    font-family: "Raleway-Regular";
+    font-family: "Raleway-Regular", serif, sans-serif;
     color: var(--main-text-white-color);
     font-size: 18px;
     margin-top: 6px;

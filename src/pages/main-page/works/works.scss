@@ -86,7 +86,7 @@
     padding: 0 12px;
     color: var(--main-text-white-color);
     text-align: center;
-    font-family: "Raleway-Regular";
+    font-family: "Raleway-Regular", serif, sans-serif;
     font-size: 22px;
     z-index: 2;
     letter-spacing: 1.5px;
@@ -144,7 +144,7 @@
   color: var(--color-text-contrast);
   background: var(--gradient-accent-fallback);
   background: var(--gradient-accent);
-  font-family: "Raleway-Medium";
+  font-family: "Raleway-Medium", serif, sans-serif;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 50px;
   text-align: center;
@@ -180,7 +180,7 @@
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  font-family: "Raleway-Bold";
+  font-family: "Raleway-Bold", serif, sans-serif;
   font-size: 16px;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(125, 215, 255, 0.14);
   margin-right: 3px;

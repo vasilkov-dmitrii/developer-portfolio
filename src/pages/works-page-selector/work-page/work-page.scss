@@ -11,7 +11,7 @@ $main-text-color: rgb(240, 238, 238);
 
 
 .title {
-  font-family: "Raleway-SemiBoldItalic";
+  font-family: "Raleway-SemiBoldItalic", serif, sans-serif;
   margin-top: 10px;
   font-style: italic;
   line-height: 1.55;
@@ -152,7 +152,7 @@ $main-text-color: rgb(240, 238, 238);
 h3 {
   margin-top: 30px;
   margin-bottom: 12px;
-  font-family: "FuturaPT-Heavy";
+  font-family: "FuturaPT-Heavy", serif, sans-serif;
   color: var(--main-yellow-text-color);
   font-size: 26px;
   display: inline-block;
@@ -169,7 +169,7 @@ hr {
 }
 
 .main_text {
-  font-family: "Raleway-Regular";
+  font-family: "Raleway-Regular", serif, sans-serif;
   font-size: 18px;
   color: $main-text-color;
   line-height: 1.6;
@@ -184,7 +184,7 @@ hr {
   li {
     color: $main-text-color;
     margin-bottom: 2px;
-    font-family: "Raleway-Regular";
+    font-family: "Raleway-Regular", serif, sans-serif;
     font-size: 18px;
     line-height: 1.6;
     list-style: circle;
@@ -287,11 +287,10 @@ video {
   box-sizing: border-box;
   border-radius: 10px;
   background: linear-gradient(135deg, #112437, #1b314a);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
 
   // letter-spacing: 2px;
 
-  font-family: "Raleway-Bold";
+  font-family: "Raleway-Bold", serif, sans-serif;
   font-size: 16px;
   box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
