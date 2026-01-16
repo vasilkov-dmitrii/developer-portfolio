@@ -1,57 +1,57 @@
 :root {
   /* Base text colors */
-  --color-text-primary: #f4f6ef;
-  --color-text-secondary: rgba(232, 236, 244, 0.85);
-  --color-text-contrast: #0b1116;
+  --color-text-primary: #f7f9fc;
+  --color-text-secondary: rgba(235, 239, 247, 0.86);
+  --color-text-contrast: #0a0f18;
 
   /* Accent colors */
-  --color-accent-primary: #7dd7ff;
-  --color-accent-secondary: #9ae2ff;
+  --color-accent-primary: #7fe4ff;
+  --color-accent-secondary: #8fb5ff;
 
   /* Surfaces */
-  --surface-base: #0f1723;
-  --surface-muted: #1a1d24;
-  --surface-contrast: #252934;
-  --surface-navy: #112437;
-  --surface-navy-strong: #1b314a;
-  --surface-navy-alt: #1f3e5e;
-  --surface-navy-alt-2: #2c527a;
-  --surface-card: rgba(22, 30, 44, 0.9);
-  --surface-elevated: rgba(30, 42, 60, 0.88);
+  --surface-base: #0b1220;
+  --surface-muted: #101a2b;
+  --surface-contrast: #172235;
+  --surface-navy: #0f2740;
+  --surface-navy-strong: #183656;
+  --surface-navy-alt: #1d3f64;
+  --surface-navy-alt-2: #28527a;
+  --surface-card: rgba(17, 24, 38, 0.9);
+  --surface-elevated: rgba(22, 34, 52, 0.9);
 
   /* Borders & neutrals */
-  --border-subtle: rgba(255, 255, 255, 0.12);
-  --border-light: #f1f1f1;
-  --border-soft: #e3e3e3;
-  --border-contrast: #1d3e5f;
-  --neutral-400: #969494;
+  --border-subtle: rgba(255, 255, 255, 0.14);
+  --border-light: #eef1f7;
+  --border-soft: #dfe4ee;
+  --border-contrast: #1c4b78;
+  --neutral-400: #9da4b3;
 
   /* Gradients with solid fallbacks */
-  --gradient-page-fallback: #0f1723;
-  --gradient-page: radial-gradient(circle at 20% 25%, rgba(125, 215, 255, 0.12), rgba(112, 96, 255, 0.08) 38%, transparent 55%),
-    radial-gradient(circle at 80% 15%, rgba(255, 159, 124, 0.12), rgba(125, 215, 255, 0.06) 36%, transparent 55%),
-    linear-gradient(145deg, #0f1723 0%, #0d1828 45%, #0b0f1b 100%);
+  --gradient-page-fallback: #0b1220;
+  --gradient-page: radial-gradient(circle at 22% 20%, rgba(127, 228, 255, 0.18), rgba(143, 181, 255, 0.12) 36%, transparent 55%),
+    radial-gradient(circle at 78% 16%, rgba(255, 177, 133, 0.16), rgba(136, 197, 255, 0.08) 34%, transparent 54%),
+    linear-gradient(150deg, #0b1220 0%, #0c1625 48%, #0a0f1c 100%);
 
-  --gradient-card-fallback: #0c121c;
-  --gradient-card: linear-gradient(145deg, rgba(12, 18, 28, 0.9), rgba(16, 26, 40, 0.95));
+  --gradient-card-fallback: #0d1626;
+  --gradient-card: linear-gradient(150deg, rgba(13, 22, 38, 0.95), rgba(20, 33, 52, 0.98));
 
-  --gradient-overlay-strong-fallback: #0e1b2c;
-  --gradient-overlay-strong: linear-gradient(140deg, rgba(14, 27, 44, 0.88), rgba(20, 40, 62, 0.88));
+  --gradient-overlay-strong-fallback: #0f2034;
+  --gradient-overlay-strong: linear-gradient(142deg, rgba(15, 32, 52, 0.92), rgba(26, 47, 72, 0.9));
 
   --gradient-accent-fallback: var(--color-accent-primary);
   --gradient-accent: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
 
-  --gradient-hero-fallback: #0b1116;
-  --gradient-hero: linear-gradient(135deg, rgba(11, 17, 22, 0.82), rgba(17, 36, 55, 0.75));
+  --gradient-hero-fallback: #0a0f18;
+  --gradient-hero: linear-gradient(135deg, rgba(10, 15, 24, 0.86), rgba(18, 41, 64, 0.82));
 
-  --gradient-timeline-fallback: #7dd7ff;
-  --gradient-timeline: linear-gradient(180deg, rgba(125, 215, 255, 0.9), rgba(112, 96, 255, 0.9));
+  --gradient-timeline-fallback: #7fe4ff;
+  --gradient-timeline: linear-gradient(180deg, rgba(127, 228, 255, 0.95), rgba(143, 181, 255, 0.92));
 
-  --gradient-work-fallback: #0f1723;
-  --gradient-work: radial-gradient(40.92% 43.59% at 40.92% 29.77%, rgba(60, 76, 102, 0.35) 0%, rgba(17, 24, 38, 0.95) 100%), var(--surface-base);
+  --gradient-work-fallback: #0b1220;
+  --gradient-work: radial-gradient(42% 44% at 42% 30%, rgba(72, 95, 128, 0.38) 0%, rgba(13, 20, 36, 0.96) 100%), var(--surface-base);
 
-  --button-surface-fallback: #11283e;
-  --button-surface: linear-gradient(145deg, rgba(20, 40, 62, 0.95), rgba(12, 23, 38, 0.95));
+  --button-surface-fallback: #12365a;
+  --button-surface: linear-gradient(145deg, rgba(26, 62, 98, 0.96), rgba(16, 36, 62, 0.96));
 }
 
 /* Aliases to keep existing variable names working */
