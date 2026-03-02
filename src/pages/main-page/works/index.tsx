@@ -16,6 +16,7 @@ import investing from '../../../img/investing.png'
 import softek from '../../../img/softek.png'
 import dcCms from '../../../img/dc_cms.jpg'
 import dcPartners from '../../../img/dc_partners.jpg'
+import tgChatBot from '../../../img/tg_bot_title.webp';
 
 type WorkItem = {
     name: string
@@ -26,6 +27,12 @@ type WorkItem = {
 }
 
 const worksConfig: WorkItem[] = [
+    {
+        activeTitle: 'Application · Next.js · Node.js · Prisma',
+        name: 'Telegram Finance Assistant',
+        linkTo: Routes.TG_CHAT_BOT,
+        labelImg: tgChatBot,
+    },
     {
         activeTitle: 'Application · React · Vercel AI SDK · AWS',
         name: 'AI-powered chat interface',

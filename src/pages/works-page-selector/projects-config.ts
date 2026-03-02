@@ -12,6 +12,14 @@ import gsm from '../../img/gsm.jpg'
 import crmSlide1 from '../../img/crmSlide1.jpg'
 import crmSlide2 from '../../img/crmSlide2.jpg'
 import aiChatCover from '../../img/softek.png'
+import tg_bot_title from '../../img/tg_bot_title.webp'
+import tg_bot_1 from '../../img/tg_bot_1.webp'
+import tg_bot_2 from '../../img/tg_bot_2.webp'
+import tg_bot_3 from '../../img/tg_bot_3.webp'
+import tg_bot_4 from '../../img/tg_bot_4.webp'
+import tg_bot_5 from '../../img/tg_bot_5.webp'
+import tg_bot_6 from '../../img/tg_bot_6.webp'
+
 
 export const projectsConfig: Partial<Record<Routes, IWorkPage>> = {
     [Routes.GOODOK]: {
@@ -168,4 +176,31 @@ export const projectsConfig: Partial<Record<Routes, IWorkPage>> = {
         ],
         projectLink: '',
     },
+    [Routes.TG_CHAT_BOT]: {
+        projectTitle: 'Telegram Finance Assistant · Full Stack Engineer',
+        projectDescription:
+            'Built a Telegram-first personal finance assistant with a Next.js dashboard, delivering expense capture, limits management, analytics, and savings forecasts.',
+        slides: [tg_bot_title,tg_bot_2, tg_bot_1, tg_bot_3, tg_bot_4, tg_bot_5, tg_bot_6],
+        technologiesTitle:
+            'The project is built using Next.js, React, and TypeScript with Prisma and PostgreSQL powering the bot and dashboard.',
+        technologiesList: [
+            'TypeScript',
+            'Next.js (App Router)',
+            'React',
+            'Prisma ORM',
+            'PostgreSQL',
+            'Telegram Bot API (Telegraf)',
+            'Node.js',
+            'REST/Next API Routes',
+        ],
+        contributionsToProjectList: [
+            'Implemented Telegram bot flows for tagging and categorizing expenses, syncing them to Prisma/PostgreSQL.',
+            'Added analytics for categories and tags, including 10-entry trend detection and month-ahead savings outlook.',
+            'Optimized expense aggregation by batching Prisma queries instead of per-item fetches to reduce DB load.',
+            'Built the dashboard pages for monthly summaries, limits management, and detailed expense breakdowns.',
+            'Hardened API error handling and edge-case coverage to keep the bot and dashboard stable in production.',
+        ],
+        projectLink: 'https://spendly-dashboard-mu.vercel.app/',
+    }
+
 }
