@@ -13,12 +13,11 @@ import crmSlide1 from '../../img/crmSlide1.jpg'
 import crmSlide2 from '../../img/crmSlide2.jpg'
 import aiChatCover from '../../img/softek.png'
 import spendly from '../../img/spendly_1.webp';
-import tg_bot_1 from '../../img/tg_bot_1.webp'
-import tg_bot_2 from '../../img/tg_bot_2.webp'
-import tg_bot_3 from '../../img/tg_bot_3.webp'
-import tg_bot_4 from '../../img/tg_bot_4.webp'
-import tg_bot_5 from '../../img/tg_bot_5.webp'
-import tg_bot_6 from '../../img/tg_bot_6.webp'
+import tg_bot_1 from '../../img/tg_chat_1.webp'
+import tg_bot_2 from '../../img/tg_chat_2.webp'
+import tg_bot_3 from '../../img/tg_chat_3.webp'
+import tg_bot_4 from '../../img/tg_chat_4.webp'
+import tg_bot_5 from '../../img/tg_chat_5.webp'
 
 
 export const projectsConfig: Partial<Record<Routes, IWorkPage>> = {
@@ -180,7 +179,7 @@ export const projectsConfig: Partial<Record<Routes, IWorkPage>> = {
         projectTitle: 'Telegram Finance Assistant · Full Stack Engineer',
         projectDescription:
             'Built a Telegram-first personal finance assistant with a Next.js dashboard, delivering expense capture, limits management, analytics, and savings forecasts.',
-        slides: [spendly,tg_bot_2, tg_bot_1, tg_bot_3, tg_bot_4, tg_bot_5, tg_bot_6],
+        slides: [spendly,tg_bot_2, tg_bot_1, tg_bot_3, tg_bot_4, tg_bot_5],
         technologiesTitle:
             'The project is built using Next.js, React, and TypeScript with Prisma and PostgreSQL powering the bot and dashboard.',
         technologiesList: [
