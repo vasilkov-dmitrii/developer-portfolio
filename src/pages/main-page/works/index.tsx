@@ -16,7 +16,8 @@ import investing from '../../../img/investing.png'
 import softek from '../../../img/softek.png'
 import dcCms from '../../../img/dc_cms.jpg'
 import dcPartners from '../../../img/dc_partners.jpg'
-import tgChatBot from '../../../img/tg_bot_title.webp';
+import tgChatBot from '../../../img/spendly_1.webp';
+
 
 type WorkItem = {
     name: string
