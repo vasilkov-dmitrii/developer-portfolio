@@ -166,12 +166,13 @@
 }
 
 .work_role {
-  font-family: "Raleway-SemiBoldItalic", sans-serif;
+  font-family: "Raleway-Bold", sans-serif;
   font-size: var(--_font-xs);
-  color: var(--_colors-text-muted);
+  color: var(--_colors-accent);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: var(--_space-xs);
+  opacity: 0.85;
 }
 
 .work_actions {

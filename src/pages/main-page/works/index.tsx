@@ -61,7 +61,7 @@ const worksConfig: WorkItem[] = [
     {
         name: "GOOD'OK Music Service",
         description: 'Music streaming service for MTS telecom — subscription management, playback, and content discovery.',
-        role: 'Frontend Developer',
+        role: 'Senior Frontend Developer',
         stack: ['Next.js', 'React', 'SSR'],
         linkTo: Routes.GOODOK,
         labelImg: goodokLabel,
