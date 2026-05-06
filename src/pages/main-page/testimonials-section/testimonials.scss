@@ -1,0 +1,105 @@
+@use '../../../styles/default' as *;
+
+.testimonials_section {
+  width: 100%;
+  padding: var(--_space-section) clamp(1rem, 8vw, 16rem);
+  background: transparent;
+
+  > h2 {
+    @include section-heading;
+  }
+}
+
+.testimonials_subtitle {
+  font-family: "Raleway-Regular", sans-serif;
+  font-size: var(--_font-base);
+  color: var(--_colors-text-muted);
+  margin-top: calc(-1 * var(--_space-md));
+  margin-bottom: var(--_space-2xl);
+}
+
+.testimonials_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--_space-xl);
+}
+
+.testimonial_card {
+  padding: var(--_space-xl);
+  border-radius: var(--_radius-lg);
+  background: var(--_colors-gradient-card);
+  border: 1px solid var(--_colors-border);
+  transition: all var(--_duration-base) var(--_ease-out);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    border-color: var(--_colors-border-strong);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px var(--_colors-shadow);
+  }
+}
+
+.testimonial_quote_mark {
+  font-family: "Raleway-Bold", sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+  background: var(--_colors-gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.3;
+  margin-bottom: calc(-1 * var(--_space-md));
+}
+
+.testimonial_text {
+  font-family: "Raleway-Regular", sans-serif;
+  font-size: var(--_font-base);
+  color: var(--_colors-text-muted);
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0 0 var(--_space-xl) 0;
+  flex: 1;
+}
+
+.testimonial_author {
+  display: flex;
+  align-items: center;
+  gap: var(--_space-md);
+}
+
+.testimonial_avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--_colors-gradient-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Raleway-Bold", sans-serif;
+  font-size: var(--_font-base);
+  color: var(--_colors-text-contrast);
+  flex-shrink: 0;
+}
+
+.testimonial_name {
+  font-family: "Raleway-Bold", sans-serif;
+  font-size: var(--_font-sm);
+  color: var(--_colors-text);
+  margin: 0;
+}
+
+.testimonial_role {
+  font-family: "Raleway-Regular", sans-serif;
+  font-size: var(--_font-xs);
+  color: var(--_colors-text-muted);
+  margin: 2px 0 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .testimonials_grid {
+    grid-template-columns: 1fr;
+  }
+}
+

@@ -1,0 +1,93 @@
+@use '../../../styles/default' as *;
+
+.process_section {
+  width: 100%;
+  padding: var(--_space-section) clamp(1rem, 8vw, 16rem);
+  background: transparent;
+
+  > h2 {
+    @include section-heading;
+  }
+}
+
+.process_subtitle {
+  font-family: "Raleway-Regular", sans-serif;
+  font-size: var(--_font-base);
+  color: var(--_colors-text-muted);
+  margin-top: calc(-1 * var(--_space-md));
+  margin-bottom: var(--_space-2xl);
+}
+
+.process_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--_space-xl);
+}
+
+.process_card {
+  padding: var(--_space-xl);
+  border-radius: var(--_radius-lg);
+  background: var(--_colors-surface-glass);
+  border: 1px solid var(--_colors-border);
+  transition: all var(--_duration-base) var(--_ease-out);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--_colors-gradient-accent);
+    opacity: 0;
+    transition: opacity var(--_duration-base) ease;
+  }
+
+  &:hover {
+    border-color: var(--_colors-border-strong);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px var(--_colors-shadow);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  h3 {
+    font-family: "Raleway-Bold", sans-serif;
+    font-size: var(--_font-lg);
+    color: var(--_colors-text);
+    margin: 0 0 var(--_space-sm) 0;
+  }
+
+  p {
+    font-family: "Raleway-Regular", sans-serif;
+    font-size: var(--_font-sm);
+    color: var(--_colors-text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+.process_number {
+  font-family: "Raleway-Bold", sans-serif;
+  font-size: var(--_font-3xl);
+  background: var(--_colors-gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: var(--_space-md);
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .process_grid {
+    grid-template-columns: 1fr;
+    gap: var(--_space-lg);
+  }
+}
+

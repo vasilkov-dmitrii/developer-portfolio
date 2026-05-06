@@ -1,64 +1,125 @@
 :root {
-  /* Base text colors */
-  --color-text-primary: #f7f9fc;
-  --color-text-secondary: rgba(235, 239, 247, 0.86);
-  --color-text-contrast: #0a0f18;
+  /* ── Background & Surfaces ── */
+  --_colors-bg: #0B0F17;
+  --_colors-surface: #111827;
+  --_colors-surface-elevated: #172033;
+  --_colors-surface-card: rgba(17, 24, 39, 0.92);
+  --_colors-surface-glass: rgba(255, 255, 255, 0.04);
 
-  /* Accent colors */
-  --color-accent-primary: #7fe4ff;
-  --color-accent-secondary: #8fb5ff;
+  /* ── Text ── */
+  --_colors-text: #F8FAFC;
+  --_colors-text-muted: #94A3B8;
+  --_colors-text-contrast: #0B0F17;
 
-  /* Surfaces */
-  --surface-base: #0b1220;
-  --surface-muted: #101a2b;
-  --surface-contrast: #172235;
-  --surface-navy: #0f2740;
-  --surface-navy-strong: #183656;
-  --surface-navy-alt: #1d3f64;
-  --surface-navy-alt-2: #28527a;
-  --surface-card: rgba(17, 24, 38, 0.9);
-  --surface-elevated: rgba(22, 34, 52, 0.9);
+  /* ── Accent / Primary ── */
+  --_colors-primary: #7C3AED;
+  --_colors-primary-soft: rgba(124, 58, 237, 0.16);
+  --_colors-primary-hover: #6D28D9;
+  --_colors-accent: #22D3EE;
+  --_colors-accent-soft: rgba(34, 211, 238, 0.14);
 
-  /* Borders & neutrals */
-  --border-subtle: rgba(255, 255, 255, 0.14);
-  --border-light: #eef1f7;
-  --border-soft: #dfe4ee;
-  --border-contrast: #1c4b78;
-  --neutral-400: #9da4b3;
+  /* ── Borders & Shadows ── */
+  --_colors-border: rgba(148, 163, 184, 0.18);
+  --_colors-border-strong: rgba(148, 163, 184, 0.32);
+  --_colors-shadow: rgba(0, 0, 0, 0.35);
+  --_colors-shadow-lg: rgba(0, 0, 0, 0.55);
 
-  /* Gradients with solid fallbacks */
-  --gradient-page-fallback: #0b1220;
-  --gradient-page: radial-gradient(circle at 22% 20%, rgba(127, 228, 255, 0.18), rgba(143, 181, 255, 0.12) 36%, transparent 55%),
-    radial-gradient(circle at 78% 16%, rgba(255, 177, 133, 0.16), rgba(136, 197, 255, 0.08) 34%, transparent 54%),
-    linear-gradient(150deg, #0b1220 0%, #0c1625 48%, #0a0f1c 100%);
+  /* ── Gradients ── */
+  --_colors-gradient-page: radial-gradient(
+      ellipse 80% 60% at 20% 10%,
+      rgba(124, 58, 237, 0.12),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 80% 20%,
+      rgba(34, 211, 238, 0.08),
+      transparent 50%
+    ),
+    linear-gradient(170deg, #0B0F17 0%, #111827 50%, #0B0F17 100%);
 
-  --gradient-card-fallback: #0d1626;
-  --gradient-card: linear-gradient(150deg, rgba(13, 22, 38, 0.95), rgba(20, 33, 52, 0.98));
+  --_colors-gradient-hero: linear-gradient(
+    135deg,
+    rgba(11, 15, 23, 0.88),
+    rgba(17, 24, 39, 0.82)
+  );
 
-  --gradient-overlay-strong-fallback: #0f2034;
-  --gradient-overlay-strong: linear-gradient(142deg, rgba(15, 32, 52, 0.92), rgba(26, 47, 72, 0.9));
+  --_colors-gradient-card: linear-gradient(
+    145deg,
+    rgba(17, 24, 39, 0.96),
+    rgba(23, 32, 51, 0.98)
+  );
 
-  --gradient-accent-fallback: var(--color-accent-primary);
-  --gradient-accent: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+  --_colors-gradient-accent: linear-gradient(
+    135deg,
+    var(--_colors-primary),
+    var(--_colors-accent)
+  );
 
-  --gradient-hero-fallback: #0a0f18;
-  --gradient-hero: linear-gradient(135deg, rgba(10, 15, 24, 0.86), rgba(18, 41, 64, 0.82));
+  --_colors-gradient-accent-subtle: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.2),
+    rgba(34, 211, 238, 0.15)
+  );
 
-  --gradient-timeline-fallback: #7fe4ff;
-  --gradient-timeline: linear-gradient(180deg, rgba(127, 228, 255, 0.95), rgba(143, 181, 255, 0.92));
+  /* ── Typography scale ── */
+  --_font-xs: 0.75rem;
+  --_font-sm: 0.875rem;
+  --_font-base: 1rem;
+  --_font-md: 1.125rem;
+  --_font-lg: 1.25rem;
+  --_font-xl: 1.5rem;
+  --_font-2xl: 2rem;
+  --_font-3xl: 2.5rem;
+  --_font-4xl: 3.25rem;
+  --_font-hero: clamp(2.5rem, 5vw, 4rem);
 
-  --gradient-work-fallback: #0b1220;
-  --gradient-work: radial-gradient(42% 44% at 42% 30%, rgba(72, 95, 128, 0.38) 0%, rgba(13, 20, 36, 0.96) 100%), var(--surface-base);
+  /* ── Spacing scale ── */
+  --_space-xs: 0.25rem;
+  --_space-sm: 0.5rem;
+  --_space-md: 1rem;
+  --_space-lg: 1.5rem;
+  --_space-xl: 2rem;
+  --_space-2xl: 3rem;
+  --_space-3xl: 4rem;
+  --_space-4xl: 6rem;
+  --_space-section: clamp(3rem, 8vw, 9rem);
 
-  --button-surface-fallback: #12365a;
-  --button-surface: linear-gradient(145deg, rgba(26, 62, 98, 0.96), rgba(16, 36, 62, 0.96));
+  /* ── Radius ── */
+  --_radius-sm: 6px;
+  --_radius-md: 12px;
+  --_radius-lg: 20px;
+  --_radius-full: 9999px;
+
+  /* ── Transitions ── */
+  --_ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --_ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --_duration-fast: 150ms;
+  --_duration-base: 300ms;
+  --_duration-slow: 500ms;
 }
 
-/* Aliases to keep existing variable names working */
+/* ── Legacy aliases (backward compat) ── */
 :root {
-  --main-text-white-color: var(--color-text-primary);
-  --main-yellow-text-color: var(--color-accent-primary);
-  --surface-color: var(--surface-card);
-  --surface-elevated: var(--surface-elevated);
-  --gradient-background: var(--gradient-page);
+  --main-text-white-color: var(--_colors-text);
+  --main-yellow-text-color: var(--_colors-accent);
+  --color-text-primary: var(--_colors-text);
+  --color-text-contrast: var(--_colors-text-contrast);
+  --color-accent-primary: var(--_colors-accent);
+  --color-accent-secondary: var(--_colors-primary);
+  --surface-color: var(--_colors-surface-card);
+  --surface-base: var(--_colors-bg);
+  --surface-navy: var(--_colors-surface-elevated);
+  --border-subtle: var(--_colors-border);
+  --border-contrast: var(--_colors-border-strong);
+  --gradient-page-fallback: var(--_colors-bg);
+  --gradient-background: var(--_colors-gradient-page);
+  --gradient-accent-fallback: var(--_colors-accent);
+  --gradient-accent: var(--_colors-gradient-accent);
+  --gradient-work-fallback: var(--_colors-bg);
+  --gradient-work: var(--_colors-bg);
+  --gradient-overlay-strong-fallback: var(--_colors-surface);
+  --gradient-overlay-strong: var(--_colors-gradient-hero);
+  --button-surface-fallback: var(--_colors-primary);
+  --button-surface: var(--_colors-primary);
+  --surface-elevated: var(--_colors-surface-elevated);
 }

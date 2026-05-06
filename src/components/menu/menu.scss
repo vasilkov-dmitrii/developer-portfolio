@@ -1,75 +1,76 @@
-
 .menu {
   position: fixed;
-  right: 0;
-  top: 0;
-  width: 100px;
-  height: 100px;
+  right: var(--_space-lg);
+  top: var(--_space-lg);
+  width: 48px;
+  height: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 11;
   cursor: pointer;
-  transition: 0.2s;
+  transition: all var(--_duration-base) var(--_ease-out);
+  border-radius: var(--_radius-md);
+  background: var(--_colors-surface-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--_colors-border);
+  gap: 5px;
 
   span {
-    width: 30px;
+    width: 20px;
     height: 2px;
-    background: var(--main-yellow-text-color);
-    margin-bottom: 8px;
-    transition: inherit;
+    background: var(--_colors-text);
+    transition: all var(--_duration-base) var(--_ease-out);
+    border-radius: var(--_radius-full);
   }
 
   &:hover {
-    background: var(--surface-navy);
-    background: var(--surface-navy);
-  }
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--_colors-border-strong);
 
-  &:hover span:nth-child(1) {
-    transform: translateX(-6px);
-    background: var(--main-text-white-color);
-  }
-  &:hover span:nth-child(3) {
-    transform: translateX(-6px);
-    background: var(--main-text-white-color);
-  }
-
-  &:hover span:nth-child(2) {
-    transform: translateX(6px);
-    background: var(--main-text-white-color);
+    span:nth-child(1) {
+      transform: translateX(-3px);
+    }
+    span:nth-child(3) {
+      transform: translateX(-3px);
+    }
+    span:nth-child(2) {
+      transform: translateX(3px);
+    }
   }
 
   &.active {
-    background: var(--surface-navy);
+    background: var(--_colors-surface-elevated);
+    border-color: var(--_colors-border-strong);
 
     span:nth-child(1) {
-      transform: rotate(45deg);
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    span:nth-child(2) {
+      opacity: 0;
     }
     span:nth-child(3) {
-      transform: translateX(-6px);
-      background: var(--main-text-white-color);
-      display: none;
-    }
-
-    span:nth-child(2) {
-      transform: translateY(-10px) rotate(-45deg);
+      transform: rotate(-45deg) translate(5px, -5px);
     }
   }
 }
 
 .hidden_menu {
   position: fixed;
-  top: 100px;
-  right: 0;
-  width: 100px;
-  background: var(--surface-navy);
+  top: calc(var(--_space-lg) + 56px);
+  right: var(--_space-lg);
+  width: 48px;
+  background: var(--_colors-surface-elevated);
+  backdrop-filter: blur(16px);
   display: none;
   flex-direction: column;
   align-items: center;
   z-index: 11;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
-  border-radius: 0 0 0 12px;
+  box-shadow: 0 12px 40px var(--_colors-shadow-lg);
+  border-radius: var(--_radius-md);
+  border: 1px solid var(--_colors-border);
+  overflow: hidden;
 
   &.active {
     display: flex;
@@ -79,37 +80,46 @@
     cursor: pointer;
     width: 100%;
     height: 44px;
-    text-align: center;
-    line-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    transition: background 0.25s ease, color 0.25s ease;
+    transition: background var(--_duration-fast) ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.04);
+      background: var(--_colors-primary-soft);
     }
 
     &:hover svg {
-      fill: var(--main-yellow-text-color);
+      fill: var(--_colors-accent);
     }
 
     &::before {
       content: "";
-      font-family: "Raleway-Regular", serif, sans-serif;
-      font-size: 16px;
+      font-family: "Raleway-Medium", sans-serif;
+      font-size: var(--_font-sm);
       right: 100%;
-      color: rgb(250, 250, 250);
+      color: var(--_colors-text);
       position: absolute;
-      padding: 0 12px;
-      box-sizing: border-box;
+      padding: 0 var(--_space-md);
       height: 100%;
-      background: var(--surface-navy);
+      display: flex;
+      align-items: center;
+      background: var(--_colors-surface-elevated);
       white-space: nowrap;
       opacity: 0;
-      animation: svg_menu_anim 0.2s linear forwards;
+      transform: translateX(8px);
+      transition: all var(--_duration-fast) var(--_ease-out);
+      border-radius: var(--_radius-md) 0 0 var(--_radius-md);
+      border: 1px solid var(--_colors-border);
+      border-right: none;
+      pointer-events: none;
       display: none;
-      border-radius: 8px 0 0 8px;
-      box-shadow: -6px 8px 20px rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border-subtle);
+    }
+
+    &:hover::before {
+      opacity: 1;
+      transform: translateX(0);
     }
 
     &:nth-child(1)::before {
@@ -119,7 +129,7 @@
       content: "About";
     }
     &:nth-child(3)::before {
-      content: "Recent work";
+      content: "Work";
     }
     &:nth-child(4)::before {
       content: "Experience";
@@ -133,57 +143,43 @@
   }
 
   svg {
-    width: 25px;
-    height: 20px;
-    fill: var(--main-text-white-color);
-    margin-top: 5px;
-    transition: 0.4s;
-    // opacity: 0.8;
+    width: 18px;
+    height: 18px;
+    fill: var(--_colors-text-muted);
+    transition: fill var(--_duration-fast) ease;
   }
 }
 
-@keyframes svg_menu_anim {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
+@media screen and (min-width: 1025px) {
+  .hidden_menu span::before {
+    display: flex;
   }
 }
 
-@media screen and (max-width: 1620px) {
+@media screen and (max-width: 600px) {
   .menu {
-    width: 80px;
-    height: 80px;
-  }
-  .hidden_menu {
-    top: 80px;
-    width: 80px;
-  }
-}
+    width: 40px;
+    height: 40px;
+    right: var(--_space-md);
+    top: var(--_space-md);
 
-@media screen and (max-width: 1280px) {
-  .hidden_menu span {
-    height: 38px;
-    line-height: 38px;
-
-    &::before {
-      font-size: 14px;
-      padding: 0 10px;
+    span {
+      width: 16px;
     }
   }
-}
 
-@media screen and (max-width: 1024px) {
   .hidden_menu {
+    top: calc(var(--_space-md) + 48px);
+    right: var(--_space-md);
+    width: 40px;
+
     span {
-      &::before {
-        display: block;
-        width: 160px;
-      }
+      height: 38px;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
     }
   }
 

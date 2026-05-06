@@ -1,60 +1,94 @@
 import React from 'react'
 import './skills.scss'
 import { IWithRefChildren } from '../index'
-import { SkillsListItem } from './skills-list-item.tsx'
 
-export type SkillConfig = {
-    name: string
-    percent: number
+type SkillGroup = {
+    category: string
+    icon: string
+    skills: string[]
 }
 
-const skillsConfig: SkillConfig[] = [
+const skillGroups: SkillGroup[] = [
     {
-        name: 'React / Next.js / Redux Toolkit',
-        percent: 90,
+        category: 'Frontend',
+        icon: '◈',
+        skills: [
+            'React', 'Next.js', 'TypeScript', 'Redux Toolkit',
+            'Angular', 'RxJS', 'HTML5', 'CSS3',
+        ],
     },
     {
-        name: 'GraphQL (Apollo) / REST / WS',
-        percent: 80,
+        category: 'Styling & UI',
+        icon: '◇',
+        skills: [
+            'SCSS / Sass', 'PostCSS', 'CSS-in-JS', 'Tailwind CSS',
+            'Responsive Design', 'Design Systems', 'Figma → Code',
+        ],
     },
     {
-        name: 'CSS-in-JS / SCSS / PostCSS',
-        percent: 85,
+        category: 'Data & APIs',
+        icon: '⬡',
+        skills: [
+            'GraphQL (Apollo)', 'REST APIs', 'WebSockets',
+            'Prisma', 'Node.js', 'PostgreSQL',
+        ],
     },
     {
-        name: 'TypeScript',
-        percent: 90,
+        category: 'Testing & Quality',
+        icon: '△',
+        skills: [
+            'Jest', 'React Testing Library', 'Playwright',
+            'Cypress', 'Code Review', 'CI/CD Pipelines', 'Linting / Prettier',
+        ],
     },
     {
-        name: 'Angular 5+ / RxJS',
-        percent: 70,
+        category: 'AI & Productivity',
+        icon: '✦',
+        skills: [
+            'Cursor IDE', 'GitHub Copilot', 'ChatGPT / GPT-4',
+            'Vercel AI SDK', 'AI-assisted Code Review',
+            'Prompt Engineering',
+        ],
     },
     {
-        name: 'Git / Vite / Webpack',
-        percent: 70,
+        category: 'Tools & DevOps',
+        icon: '⊞',
+        skills: [
+            'Git / GitHub', 'Vite', 'Webpack', 'Docker',
+            'Vercel', 'AWS (S3, Lambda)', 'GitHub Actions',
+        ],
+    },
+    {
+        category: 'Soft Skills',
+        icon: '◎',
+        skills: [
+            'Technical Communication', 'Cross-team Collaboration',
+            'Mentoring', 'Product Thinking', 'Agile / Scrum',
+        ],
     },
 ]
 
 export const Skills: React.FC<IWithRefChildren> = ({ refElement }) => {
-    const orderedSkills = React.useMemo<SkillConfig[]>(
-        () => [...skillsConfig].sort((a, b) => b.percent - a.percent),
-        []
-    )
-
     return (
-        <section className="my_skills" ref={refElement}>
-            <div className="all_skills">
-                {orderedSkills.map((el) => (
-                    <SkillsListItem {...el} key={el.name} />
+        <section className="skills_section" ref={refElement}>
+            <h2>Skills & Tools</h2>
+            <p className="skills_subtitle">Technologies I use daily and the ones I know well</p>
+            <div className="skills_grid">
+                {skillGroups.map((group) => (
+                    <div className="skill_group" key={group.category}>
+                        <div className="skill_group_header">
+                            <span className="skill_group_icon">{group.icon}</span>
+                            <h3>{group.category}</h3>
+                        </div>
+                        <div className="skill_badges">
+                            {group.skills.map((skill) => (
+                                <span className="skill_badge" key={skill}>
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
                 ))}
-            </div>
-            <div className="right_skills_block">
-                <div className="graph_triangle triangle_anim">
-                    <div className="side html5"></div>
-                    <div className="side ang"></div>
-                    <div className="side js"></div>
-                    <div className="side css3"></div>
-                </div>
             </div>
         </section>
     )

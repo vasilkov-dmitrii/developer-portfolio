@@ -1,249 +1,98 @@
 @use "../../../styles/_default" as *;
-@use '../../../styles/adaptive' as *;
 
-.skills_row {
-  display: flex;
+.skills_section {
   width: 100%;
-  background: rgba(232, 236, 244, 0.08);
-  border: 1px solid var(--border-subtle);
-  border-radius: 10px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-  height: 30px;
-  position: relative;
-  padding-right: 50px;
-  box-sizing: border-box;
-  margin-bottom: 16px;
-  transition: 0.2s;
-  cursor: pointer;
-  overflow: hidden;
+  padding: var(--_space-section) clamp(1rem, 8vw, 16rem);
+  background: transparent;
 
-  .progress_bar {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    overflow: hidden;
-  }
-
-  .fill {
-    width: 0;
-    height: 100%;
-    background: var(--button-surface-fallback);
-    background: var(--button-surface);
-    transition: 0.4s;
-  }
-
-  span {
-    height: 100%;
-    line-height: 30px;
-    font-size: 14px;
-    font-weight: 900;
-    position: absolute;
-    right: 6px;
-    top: 0;
-    color: rgba(20, 40, 62, 0.95);
-  }
-
-  &:nth-child(1) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 0.2s linear forwards;
-  }
-
-  &:nth-child(2) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 0.4s linear forwards;
-  }
-  &:nth-child(3) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 0.6s linear forwards;
-  }
-
-  &:nth-child(4) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 0.8s linear forwards;
-  }
-  &:nth-child(5) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 1s linear forwards;
-  }
-
-  &:nth-child(6) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 1.2s linear forwards;
-  }
-
-  &:nth-child(7) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 1.4s linear forwards;
-  }
-
-  &:nth-child(8) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 1.6s linear forwards;
-  }
-  &:nth-child(9) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 1.8s linear forwards;
-  }
-
-  &:nth-child(10) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 2s linear forwards;
-  }
-
-  &:nth-child(11) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 2.2s linear forwards;
-  }
-  &:nth-child(12) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 2.4s linear forwards;
-  }
-  &:nth-child(13) .fill.fill_animation_class {
-    animation: fill_grow 0.5s 2.6s linear forwards;
-  }
-
-  &:hover .name {
-    width: 268px;
+  > h2 {
+    @include section-heading;
   }
 }
 
-.name {
-  width: 25%;
-  height: 100%;
-  background: var(--gradient-accent-fallback);
-  background: var(--gradient-accent);
-  font-size: 12px;
-  font-family: "Raleway-Medium", serif, sans-serif;
-  color: var(--color-text-contrast);
-  letter-spacing: 0;
-  line-height: 30px;
-  text-align: center;
-  text-transform: uppercase;
-  flex-shrink: 0;
-  padding: 0 8px;
-  font-weight: 700;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  transition: 0.2s;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+.skills_subtitle {
+  font-family: "Raleway-Regular", sans-serif;
+  font-size: var(--_font-base);
+  color: var(--_colors-text-muted);
+  margin-top: calc(-1 * var(--_space-md));
+  margin-bottom: var(--_space-2xl);
 }
 
+.skills_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--_space-xl);
+}
 
-.right_skills_block {
-  flex: 1;
+.skill_group {
+  padding: var(--_space-xl);
+  border-radius: var(--_radius-lg);
+  background: var(--_colors-gradient-card);
+  border: 1px solid var(--_colors-border);
+  transition: all var(--_duration-base) var(--_ease-out);
+
+  &:hover {
+    border-color: var(--_colors-border-strong);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px var(--_colors-shadow);
+  }
+}
+
+.skill_group_header {
   display: flex;
-  height: 100%;
   align-items: center;
-  justify-content: center;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  opacity: 0.6;
+  gap: var(--_space-sm);
+  margin-bottom: var(--_space-lg);
 }
 
-.graph_triangle {
-  transition: 0.5s;
-  width: 100px;
-  height: 188px;
-  transform-style: preserve-3d;
+.skill_group_icon {
+  font-size: var(--_font-xl);
+  color: var(--_colors-accent);
+  line-height: 1;
+}
 
-  .side {
-    position: absolute;
-    border-style: solid;
-    border-width: 200px 0 200px 346px;
-    transform-origin: 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.4s;
+.skill_group_header h3 {
+  font-family: "Raleway-Bold", sans-serif;
+  font-size: var(--_font-lg);
+  color: var(--_colors-text);
+  margin: 0;
+  letter-spacing: 0.5px;
+}
 
-    &::before {
-      content: "";
-      position: absolute;
-      left: -311px;
-      top: -69px;
+.skill_badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--_space-sm);
+}
 
-      width: 150px;
-      height: 150px;
-    }
+.skill_badge {
+  display: inline-block;
+  padding: 6px 14px;
+  font-family: "Raleway-Medium", sans-serif;
+  font-size: var(--_font-xs);
+  color: var(--_colors-text-muted);
+  background: var(--_colors-surface-glass);
+  border: 1px solid var(--_colors-border);
+  border-radius: var(--_radius-full);
+  letter-spacing: 0.3px;
+  transition: all var(--_duration-fast) ease;
+  cursor: default;
 
-    &:nth-child(1) {
-      transform: rotateY(-19.5deg) rotateX(180deg) translateY(-400px);
-      border-color: transparent transparent transparent rgba(70, 80, 95, 0.6);
-
-      &::before {
-        background: url("@/img/ts.png") no-repeat center;
-        background-size: 100% 100%;
-      }
-
-      &:hover {
-        border-color: transparent transparent transparent rgba(70, 80, 95, 0.95);
-      }
-    }
-
-    &:nth-child(2) {
-      transform: rotateY(90deg) rotateZ(60deg) rotateX(180deg)
-      translateY(-400px);
-      border-color: transparent transparent transparent rgba(70, 80, 95, 0.6);
-
-      &::before {
-        background: url("@/img/angular.png") no-repeat center;
-        background-size: 100% 100%;
-      }
-
-      &:hover {
-        border-color: transparent transparent transparent rgba(70, 80, 95, 0.95);
-      }
-    }
-    &:nth-child(3) {
-      transform: rotateX(60deg) rotateY(19.5deg);
-      border-color: transparent transparent transparent rgba(70, 80, 95, 0.6);
-
-      &::before {
-        background: url("@/img/js.png") no-repeat center;
-        background-size: 100% 100%;
-      }
-
-      &:hover {
-        border-color: transparent transparent transparent rgba(70, 80, 95, 0.95);
-      }
-    }
-    &:nth-child(4) {
-      transform: rotateX(-60deg) rotateY(19.5deg) translateX(-116px)
-      translateY(-200px) translateZ(326px);
-      border-color: transparent transparent transparent rgba(70, 80, 95, 0.6);
-
-      &::before {
-        background: url("@/img/react.png") no-repeat center;
-        background-size: 100% 100%;
-      }
-
-      &:hover {
-        border-color: transparent transparent transparent rgba(70, 80, 95, 0.95);
-      }
-    }
+  &:hover {
+    color: var(--_colors-text);
+    border-color: var(--_colors-accent);
+    background: var(--_colors-accent-soft);
+    transform: translateY(-1px);
   }
 }
 
-.triangle_anim {
-  animation: triangle_anim_do 15s linear infinite;
-}
-
-@keyframes triangle_anim_do {
-  0% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+@media screen and (max-width: 768px) {
+  .skills_grid {
+    grid-template-columns: 1fr;
+    gap: var(--_space-lg);
   }
 
-  100% {
-    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-  }
-}
-
-@keyframes fill_grow {
-  from {
-    opacity: 0.5;
-    width: 0%;
-  }
-
-  to {
-    opacity: 1;
-    width: 100%;
+  .skill_group {
+    padding: var(--_space-lg);
   }
 }

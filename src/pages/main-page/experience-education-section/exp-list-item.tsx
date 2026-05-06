@@ -3,15 +3,12 @@ import { ExperienceConfigType } from './index.tsx'
 import './experience-education-section.scss'
 import { useIntersectionObserver } from '../../../hooks/use-intersection-observer'
 
-const createMarkup = (html: string) => {
-    return { __html: html }
-}
-
 export const ExpListItem: React.FC<ExperienceConfigType> = ({
     companyName,
     workPeriod,
     workPosition,
     workDescription,
+    highlights,
 }) => {
     const ref = useRef<HTMLDivElement | null>(null)
     const [isIntersecting, setIsIntersecting] = useState(false)
@@ -24,7 +21,7 @@ export const ExpListItem: React.FC<ExperienceConfigType> = ({
     useIntersectionObserver(ref, onObserver)
 
     return (
-        <div className="experience__row line_anim" key={companyName}>
+        <div className="experience__row" key={companyName}>
             <div className="experience__name">
                 <h2>{companyName}</h2>
                 <span>{workPeriod}</span>
@@ -36,18 +33,27 @@ export const ExpListItem: React.FC<ExperienceConfigType> = ({
                             ? 'experience__circle circle_grow_anim'
                             : 'experience__circle'
                     }
-                ></div>
+                />
                 <div
                     className={
                         isIntersecting
                             ? 'experience__line line_anim'
                             : 'experience__line'
                     }
-                ></div>
+                />
             </div>
             <div className="experience__more">
                 <h3>{workPosition}</h3>
-                <p dangerouslySetInnerHTML={createMarkup(workDescription)}></p>
+                <p>{workDescription}</p>
+                {highlights && highlights.length > 0 && (
+                    <div className="experience__highlights">
+                        {highlights.map((h) => (
+                            <span className="experience__highlight_badge" key={h}>
+                                {h}
+                            </span>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     )

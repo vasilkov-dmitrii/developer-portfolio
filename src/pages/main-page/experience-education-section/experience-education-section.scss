@@ -1,46 +1,108 @@
 @use "../../../styles/default" as *;
-@use '../../../styles/adaptive' as *;
 
 .experience {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(145deg, rgba(12, 18, 28, 0.92), rgba(16, 26, 40, 0.96));
+  padding: var(--_space-section) clamp(1rem, 8vw, 16rem);
+  background: transparent;
+
+  > h2 {
+    @include section-heading;
+  }
 
   p {
-    font-family: "Raleway-Regular", serif, sans-serif;
-    color: var(--main-text-white-color);
+    font-family: "Raleway-Regular", sans-serif;
+    color: var(--_colors-text-muted);
+  }
+}
+
+.experience_subtitle {
+  font-family: "Raleway-Regular", sans-serif;
+  font-size: var(--_font-base);
+  color: var(--_colors-text-muted);
+  margin-top: calc(-1 * var(--_space-md));
+  margin-bottom: var(--_space-2xl);
+}
+
+.experience_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_space-sm);
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  padding: var(--_space-section) clamp(1rem, 8vw, 16rem);
+  background: transparent;
+  gap: var(--_space-sm);
+
+  p {
+    font-family: "Raleway-Regular", sans-serif;
+    color: var(--_colors-text-muted);
   }
 
   &__row {
     width: 100%;
     display: flex;
-    transition: 0.4s;
-    box-sizing: border-box;
-    border: 1px solid var(--border-subtle);
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(4px);
-    padding: 2px 12px;
-    border-radius: 6px;
-    margin-top: 4px;
+    transition: all var(--_duration-base) var(--_ease-out);
+    border: 1px solid var(--_colors-border);
+    background: var(--_colors-surface-glass);
+    backdrop-filter: blur(8px);
+    padding: var(--_space-md) var(--_space-lg);
+    border-radius: var(--_radius-md);
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      border-color: var(--_colors-border-strong);
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateX(4px);
+    }
+
+    /* Accent left bar on hover */
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--_colors-gradient-accent);
+      opacity: 0;
+      transition: opacity var(--_duration-base) ease;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
   }
 
   &__name {
     display: flex;
     flex-direction: column;
-    padding: 12px 0;
+    padding: var(--_space-sm) 0;
     text-align: left;
     justify-content: center;
-    width: 270px;
+    width: 220px;
+    flex-shrink: 0;
 
     h2 {
-      @include h2_txt(24px, 2px);
-      color: var(--main-text-white-color);
+      font-size: var(--_font-lg);
+      letter-spacing: 0.5px;
+      color: var(--_colors-text);
+      padding-bottom: 0;
+      margin-bottom: 4px;
+
+      &::after {
+        display: none;
+      }
     }
 
     span {
-      font-family: "Raleway-SemiBoldItalic", serif, sans-serif;
-      font-size: 18px;
-      color: rgba(232, 236, 244, 0.85);
+      font-family: "Raleway-SemiBoldItalic", sans-serif;
+      font-size: var(--_font-sm);
+      color: var(--_colors-text-muted);
     }
   }
 
@@ -49,45 +111,62 @@
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
-    margin: 0 24px;
+    margin: 0 var(--_space-lg);
   }
 
   &__circle {
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     transform: scale(0);
-    background: linear-gradient(135deg, var(--main-yellow-text-color), #9ae2ff);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
-    transition: 0.7s;
+    background: var(--_colors-gradient-accent);
+    box-shadow: 0 0 16px rgba(34, 211, 238, 0.3);
+    transition: transform 0.5s var(--_ease-spring);
   }
 
   &__line {
     width: 2px;
     height: 0%;
-    background: linear-gradient(180deg, rgba(125, 215, 255, 0.9), rgba(112, 96, 255, 0.9));
-    transition: 0.7s;
+    background: linear-gradient(180deg, var(--_colors-accent), var(--_colors-primary));
+    transition: height 0.6s var(--_ease-out);
   }
 
   &__more {
-    padding: 12px 0;
+    padding: var(--_space-sm) 0;
     flex: 1;
 
     h3 {
-      color: var(--main-yellow-text-color);
-      font-size: 24px;
-      font-family: "Raleway-Regular", serif, sans-serif;
-      margin-bottom: 16px;
+      color: var(--_colors-accent);
+      font-size: var(--_font-lg);
+      font-family: "Raleway-Medium", sans-serif;
+      margin: 0 0 var(--_space-xs) 0;
       display: inline-block;
-      border-bottom: 1px solid var(--border-subtle);
     }
 
     p {
-      font-family: "Raleway-Medium", serif, sans-serif;
-      font-size: 18px;
-      margin-bottom: 6px;
-      color: var(--main-text-white-color);
+      font-family: "Raleway-Regular", sans-serif;
+      font-size: var(--_font-base);
+      color: var(--_colors-text-muted);
+      line-height: 1.6;
     }
+  }
+
+  &__highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: var(--_space-sm);
+  }
+
+  &__highlight_badge {
+    padding: 3px 10px;
+    font-family: "Raleway-Medium", sans-serif;
+    font-size: 11px;
+    color: var(--_colors-accent);
+    background: var(--_colors-accent-soft);
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    border-radius: var(--_radius-full);
+    letter-spacing: 0.3px;
   }
 }
 
@@ -98,10 +177,64 @@
   transform: scale(1);
 }
 
+@media screen and (max-width: 768px) {
+  .experience {
+    &__name {
+      width: 180px;
+
+      h2 {
+        font-size: var(--_font-base);
+      }
+
+      span {
+        font-size: var(--_font-xs);
+      }
+    }
+
+    &__runner {
+      margin: 0 var(--_space-md);
+    }
+
+    &__more h3 {
+      font-size: var(--_font-base);
+    }
+
+    &__more p {
+      font-size: var(--_font-sm);
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
   .experience {
-    &__more {
-      border-top: 0px solid white;
+    &__row {
+      flex-direction: column;
+      padding: var(--_space-md);
     }
+
+    &__name {
+      width: 100%;
+    }
+
+    &__runner {
+      flex-direction: row;
+      margin: var(--_space-sm) 0;
+    }
+
+    &__circle {
+      transform: scaleX(0);
+      width: 60px;
+      height: 4px;
+      border-radius: var(--_radius-full);
+      transform-origin: left;
+    }
+
+    &__line {
+      display: none;
+    }
+  }
+
+  .experience__row .circle_grow_anim {
+    transform: scaleX(1);
   }
 }

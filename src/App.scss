@@ -1,16 +1,28 @@
 @use './styles/_colors.scss';
 @use './styles/_default.scss' as *;
 
+/* ── Base reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Raleway-Regular", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--_colors-text);
+  background: var(--_colors-bg);
 }
 
 a {
   outline: none;
   text-decoration: none;
-  color: var(--main-text-white-color);
+  color: var(--_colors-text);
+  transition: color var(--_duration-fast) ease;
 }
 
 p,
@@ -32,23 +44,18 @@ ul {
 
 main {
   width: 100%;
-  box-sizing: border-box;
-  background: var(--gradient-page-fallback);
-  background: var(--gradient-background);
+  background: var(--_colors-bg);
+  background: var(--_colors-gradient-page);
   display: flex;
   flex-direction: column;
   position: relative;
+  min-height: 100vh;
 }
 
 h2 {
-  font-size: 30px;
-  letter-spacing: 4px;
-  font-family: "Raleway-Bold", sans-serif;
-  color: var(--main-yellow-text-color);
-}
-
-.anim_span {
-  animation: anim_span 0.6s linear infinite alternate;
+  @include h2_txt(var(--_font-3xl), 2px);
+  @include section-heading;
+  color: var(--_colors-text);
 }
 
 main,
@@ -58,15 +65,51 @@ footer {
   width: 100%;
 }
 
-@keyframes anim_span {
-  from {
-    opacity: 0;
+/* ── Separator redesign ── */
+.separator {
+  padding: var(--_space-2xl) var(--_space-xl);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+
+  h2 {
+    font-size: var(--_font-lg);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--_colors-text-muted);
+    font-family: "Raleway-Medium", sans-serif;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    z-index: 2;
+
+    &::after {
+      display: none;
+    }
   }
-  to {
-    opacity: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(600px, 80%);
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--_colors-border-strong),
+      transparent
+    );
   }
 }
 
+/* ── Font faces ── */
 @font-face {
   font-family: "Raleway-SemiBoldItalic";
   src: url("./fonts/Raleway-SemiBoldItalic.ttf");
@@ -97,52 +140,26 @@ footer {
   font-display: swap;
 }
 
-.separator {
-  height: 130px;
-  width: 100%;
-  background: url('@/img/separator.webp') no-repeat fixed center;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-  h2 {
-    @include h2_txt(32px, 4px);
-    z-index: 2;
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 102%;
-    left: 0;
-    top: -1px;
-    background: var(--surface-navy);
-    background: linear-gradient(to right, rgb(27, 6, 15), var(--surface-navy));
-    opacity: 0.7;
-    z-index: 1;
-  }
-}
-
-// legacy color token retained for compatibility
-$main_color: var(--color-text-primary);
-
+/* ── Scrollbar ── */
 ::-webkit-scrollbar-track {
-  background-color: inherit;
+  background-color: var(--_colors-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  background-color: var(--main-yellow-text-color);
+  border-radius: var(--_radius-full);
+  background: var(--_colors-gradient-accent);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--main-yellow-text-color);
+  background: var(--_colors-accent);
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--_colors-primary-soft);
+  color: var(--_colors-text);
 }
