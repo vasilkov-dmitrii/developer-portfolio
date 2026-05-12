@@ -4,7 +4,7 @@ import { IWithRefChildren } from '../index'
 
 const highlights = [
     { label: '7+', desc: 'Years of experience' },
-    { label: '25+', desc: 'Projects shipped' },
+    { label: '15+', desc: 'Projects shipped' },
     { label: '5', desc: 'Enterprise clients' },
 ]
 
