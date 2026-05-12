@@ -45,7 +45,7 @@ const skillGroups: SkillGroup[] = [
         category: 'AI & Productivity',
         icon: '✦',
         skills: [
-            'Cursor IDE', 'GitHub Copilot', 'ChatGPT / GPT-4',
+            'Cursor IDE', 'GitHub Copilot', 'ChatGPT',
             'Vercel AI SDK', 'AI-assisted Code Review',
             'Prompt Engineering',
         ],
