@@ -179,7 +179,7 @@ export const projectsConfig: Partial<Record<Routes, IWorkPage>> = {
         projectTitle: 'Telegram Finance Assistant · Full Stack Engineer',
         projectDescription:
             'Built a Telegram-first personal finance assistant with a Next.js dashboard, delivering expense capture, limits management, analytics, and savings forecasts.',
-        slides: [spendly,tg_bot_2, tg_bot_1, tg_bot_3, tg_bot_4, tg_bot_5],
+        slides: [spendly, tg_bot_2, tg_bot_1, tg_bot_3, tg_bot_4, tg_bot_5],
         technologiesTitle:
             'The project is built using Next.js, React, and TypeScript with Prisma and PostgreSQL powering the bot and dashboard.',
         technologiesList: [
@@ -199,7 +199,6 @@ export const projectsConfig: Partial<Record<Routes, IWorkPage>> = {
             'Built the dashboard pages for monthly summaries, limits management, and detailed expense breakdowns.',
             'Hardened API error handling and edge-case coverage to keep the bot and dashboard stable in production.',
         ],
-        projectLink: 'https://spendly-dashboard-mu.vercel.app/',
-    }
-
+        projectLink: 'https://getspendly.click/',
+    },
 }
