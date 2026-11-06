@@ -120,7 +120,7 @@ export const completeCommand = (input: string) => {
 }
 
 const ProjectList = ({ onRun }: { onRun: Run }) => (
-    <div className="term_ls">
+    <div className="term_ls" data-projects="">
         <p className="term_hint">
             newest first · click a row or run <code>open event-ruta</code>
         </p>

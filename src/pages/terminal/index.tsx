@@ -54,7 +54,7 @@ export const Terminal = () => {
     const screenRef = useRef<HTMLDivElement | null>(null)
     const inputRef = useRef<HTMLInputElement | null>(null)
     const interactiveRef = useRef(false)
-    const followOutput = useRef(false)
+    const scrollMode = useRef<'end' | 'projects' | null>(null)
     interactiveRef.current = interactive
     const seq = useRef(1)
     const gen = useRef(0)
@@ -68,13 +68,13 @@ export const Terminal = () => {
         return `l${seq.current}`
     }
 
-    const focusPrompt = () => {
-        inputRef.current?.focus({ preventScroll: true })
-    }
-
     const submit = (raw: string) => {
-        if (interactiveRef.current) followOutput.current = true
         const command = raw.trim()
+        if (interactiveRef.current) {
+            const name = command.split(/\s+/)[0]?.toLowerCase()
+            scrollMode.current =
+                name === 'projects' || name === 'ls' ? 'projects' : 'end'
+        }
         let result: CommandResult | null = null
 
         if (command) {
@@ -161,11 +161,26 @@ export const Terminal = () => {
     }, [])
 
     useEffect(() => {
-        if (!followOutput.current) return
+        const mode = scrollMode.current
+        if (!mode) return
+        scrollMode.current = null
         const screen = screenRef.current
         if (!screen) return
-        screen.scrollTop = screen.scrollHeight
-    }, [lines, value])
+        window.requestAnimationFrame(() => {
+            if (mode === 'projects') {
+                const blocks = screen.querySelectorAll('[data-projects]')
+                const block = blocks[blocks.length - 1] as HTMLElement | undefined
+                if (!block) return
+                const top =
+                    screen.scrollTop +
+                    block.getBoundingClientRect().top -
+                    screen.getBoundingClientRect().top
+                screen.scrollTo({ top, behavior: 'smooth' })
+                return
+            }
+            screen.scrollTop = screen.scrollHeight
+        })
+    }, [lines])
 
     const takeOver = (next: string) => {
         gen.current += 1
@@ -227,7 +242,7 @@ export const Terminal = () => {
     }
 
     return (
-        <section className="term" onClick={focusPrompt}>
+        <section className="term">
             <div className="term_window">
                 <header className="term_chrome">
                     <span className="term_dots" aria-hidden="true">
@@ -253,9 +268,12 @@ export const Terminal = () => {
                         }
                         if (line.kind === 'cmd') {
                             return (
-                                <Prompt key={line.id}>
-                                    <span className="term_typed">{line.text}</span>
-                                </Prompt>
+                                <React.Fragment key={line.id}>
+                                    <div className="term_divider" />
+                                    <Prompt>
+                                        <span className="term_typed">{line.text}</span>
+                                    </Prompt>
+                                </React.Fragment>
                             )
                         }
                         return (

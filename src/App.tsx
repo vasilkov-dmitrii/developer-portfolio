@@ -1,7 +1,6 @@
 import React from 'react'
 import './App.scss'
 import './styles/_adaptive.scss'
-import { ProgressScroll } from './components/progress-scroll'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import { MainPage } from './pages/main-page'
 import { Routes as AppRouts } from './routes'
@@ -12,7 +11,6 @@ import { ScrollToTop } from './components/scroll-to-top'
 function App() {
     return (
         <main>
-            <ProgressScroll />
             <HashRouter>
                 <ScrollToTop />
                 <Routes>

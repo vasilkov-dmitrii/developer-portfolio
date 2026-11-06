@@ -154,6 +154,17 @@
   50% { opacity: 0; }
 }
 
+.term_divider {
+  height: 1px;
+  margin: 16px 0 12px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(203, 213, 225, 0.45),
+    transparent
+  );
+}
+
 .term_out {
   padding: 2px 0 8px 0;
 
