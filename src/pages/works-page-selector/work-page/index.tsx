@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
 import './work-page.scss';
 import {Slider} from "../../../components/slider";
 import {IWorkPage} from "../index";
@@ -10,9 +11,15 @@ export const WorkPage: React.FC<IWorkPage> = ({slides, projectTitle,
                                                   technologiesList,
                                               contributionsToProjectList,
                                                   projectLink}) => {
+    const { id } = useParams()
     return (
         <>
             <div className='work__info'>
+                <p className="case_path">
+                    <Link to="/">~</Link>
+                    <span>projects</span>
+                    <span className="current">{id}</span>
+                </p>
                 <h2>{projectTitle}</h2>
                 <p className='title'>{projectDescription}</p>
                 <Slider slides={slides}/>

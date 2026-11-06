@@ -1,5 +1,28 @@
 @use "../../../styles/_default" as *;
 
+.case_path {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  color: #64748b;
+
+  a {
+    color: #22d3ee;
+  }
+
+  span::before {
+    content: "/";
+    margin-right: 8px;
+    color: #475569;
+  }
+
+  .current {
+    color: #f8fafc;
+  }
+}
+
 .work__info {
   padding: var(--_space-section) clamp(1rem, 8vw, 16rem);
   display: flex;
