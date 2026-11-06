@@ -34,12 +34,18 @@ const experience = [
     ['Insat LLC', '2018 — 2019', 'Frontend Developer'],
 ] as const
 
+const careerStartYear = 2018
+
+const yearsOfExperience = () => new Date().getFullYear() - careerStartYear
+
 const skills = [
-    ['frontend', 'React, Next.js, TypeScript, Angular, RxJS'],
-    ['data', 'GraphQL, REST, WebSockets, Prisma, Node.js, PostgreSQL'],
-    ['ui', 'SCSS, design systems, responsive layout, Figma to code'],
-    ['quality', 'Jest, Testing Library, Playwright, CI/CD'],
-    ['ai', 'Cursor, Copilot, Vercel AI SDK'],
+    ['frontend', 'React, Next.js, TypeScript, Redux Toolkit, Angular, RxJS, HTML5, CSS3'],
+    ['styling', 'SCSS / Sass, PostCSS, CSS-in-JS, Tailwind CSS, Responsive Design, Design Systems, Figma → Code'],
+    ['data', 'GraphQL (Apollo), REST APIs, WebSockets, Prisma, Node.js, PostgreSQL'],
+    ['testing', 'Jest, React Testing Library, Playwright, Cypress, Code Review, CI/CD Pipelines, Linting / Prettier'],
+    ['ai', 'Cursor IDE, GitHub Copilot, ChatGPT, Vercel AI SDK, AI-assisted Code Review, Prompt Engineering'],
+    ['devops', 'Git / GitHub, Vite, Webpack, Docker, Vercel, AWS (S3, Lambda), GitHub Actions'],
+    ['soft', 'Technical Communication, Cross-team Collaboration, Mentoring, Product Thinking, Agile / Scrum'],
 ] as const
 
 const quotes = [
@@ -227,15 +233,18 @@ export const execute = (raw: string, onRun: Run): CommandResult => {
                             </div>
                             <div>
                                 <dt>experience</dt>
-                                <dd>7+ years</dd>
+                                <dd>{yearsOfExperience()} years</dd>
                             </div>
                             <div>
                                 <dt>stack</dt>
-                                <dd>TypeScript, React, Next.js, Node.js</dd>
+                                <dd>
+                                    TypeScript, React, Next.js, Angular, RxJS,
+                                    GraphQL, Node.js
+                                </dd>
                             </div>
                             <div>
                                 <dt>now</dt>
-                                <dd>EventRuta and Spendly, both full-stack</dd>
+                                <dd>Senior Frontend Developer · Access Softek</dd>
                             </div>
                             <div>
                                 <dt>status</dt>
@@ -250,15 +259,27 @@ export const execute = (raw: string, onRun: Run): CommandResult => {
                 output: (
                     <div className="term_prose">
                         <p>
-                            I build web applications that people enjoy using —
-                            fast, accessible, and carefully structured.
+                            I&apos;m a senior frontend engineer who specializes in
+                            building web applications that people actually enjoy
+                            using — fast, accessible, and thoughtfully designed.
                         </p>
                         <p>
-                            The last seven years have been banking platforms,
-                            telecom products, CRM systems, and AI interfaces.
-                            Lately that also means full-stack products: EventRuta
-                            and Spendly, from the interface through the API and
-                            the database.
+                            Over {yearsOfExperience()} years I&apos;ve worked on
+                            banking platforms, telecom products, CRM systems, and
+                            AI-powered interfaces. I care about architecture as
+                            much as pixel-perfect UI, and I treat every component
+                            as a contract between the product and its users.
+                        </p>
+                        <p>
+                            My daily stack is TypeScript, React, Next.js, and
+                            GraphQL. I write tests before I write excuses, and I
+                            actively use AI tooling — Cursor, GitHub Copilot, and
+                            ChatGPT — to move faster without cutting corners.
+                        </p>
+                        <p>
+                            What sets me apart: I think in systems, communicate
+                            clearly with designers and PMs, and ship production
+                            code that doesn&apos;t come back as a bug ticket.
                         </p>
                     </div>
                 ),

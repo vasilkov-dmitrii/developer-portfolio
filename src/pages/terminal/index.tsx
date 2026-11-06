@@ -48,10 +48,14 @@ export const Terminal = () => {
     ])
     const [value, setValue] = useState('')
     const [interactive, setInteractive] = useState(false)
+    const [focused, setFocused] = useState(false)
     const [clock, setClock] = useState(() => formatClock(new Date()))
 
     const screenRef = useRef<HTMLDivElement | null>(null)
     const inputRef = useRef<HTMLInputElement | null>(null)
+    const interactiveRef = useRef(false)
+    const followOutput = useRef(false)
+    interactiveRef.current = interactive
     const seq = useRef(1)
     const gen = useRef(0)
     const history = useRef<string[]>([])
@@ -64,7 +68,12 @@ export const Terminal = () => {
         return `l${seq.current}`
     }
 
+    const focusPrompt = () => {
+        inputRef.current?.focus({ preventScroll: true })
+    }
+
     const submit = (raw: string) => {
+        if (interactiveRef.current) followOutput.current = true
         const command = raw.trim()
         let result: CommandResult | null = null
 
@@ -115,6 +124,7 @@ export const Terminal = () => {
                 BOOT.forEach((command) => submitRef.current(command))
                 setValue('')
                 setInteractive(true)
+                if (screenRef.current) screenRef.current.scrollTop = 0
                 return
             }
 
@@ -133,7 +143,7 @@ export const Terminal = () => {
             }
             if (!alive()) return
             setInteractive(true)
-            inputRef.current?.focus()
+            if (screenRef.current) screenRef.current.scrollTop = 0
         }
 
         void boot()
@@ -151,14 +161,11 @@ export const Terminal = () => {
     }, [])
 
     useEffect(() => {
+        if (!followOutput.current) return
         const screen = screenRef.current
         if (!screen) return
         screen.scrollTop = screen.scrollHeight
     }, [lines, value])
-
-    useEffect(() => {
-        if (interactive) inputRef.current?.focus()
-    }, [interactive])
 
     const takeOver = (next: string) => {
         gen.current += 1
@@ -220,7 +227,7 @@ export const Terminal = () => {
     }
 
     return (
-        <section className="term" onClick={() => inputRef.current?.focus()}>
+        <section className="term" onClick={focusPrompt}>
             <div className="term_window">
                 <header className="term_chrome">
                     <span className="term_dots" aria-hidden="true">
@@ -269,6 +276,9 @@ export const Terminal = () => {
                         }}
                     >
                         <Prompt>
+                            {!focused && !value && (
+                                <span className="term_caret" aria-hidden="true" />
+                            )}
                             <input
                                 ref={inputRef}
                                 value={value}
@@ -277,12 +287,13 @@ export const Terminal = () => {
                                     if (!interactive) takeOver(next)
                                     else setValue(next)
                                 }}
+                                onFocus={() => setFocused(true)}
+                                onBlur={() => setFocused(false)}
                                 onKeyDown={onKeyDown}
                                 aria-label="Terminal command"
                                 autoCapitalize="off"
                                 autoCorrect="off"
                                 spellCheck={false}
-                                autoFocus
                                 placeholder={
                                     interactive ? 'type a command — help' : ''
                                 }

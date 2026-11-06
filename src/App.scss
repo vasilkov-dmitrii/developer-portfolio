@@ -50,6 +50,14 @@ main {
   flex-direction: column;
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
+}
+
+main:has(.term) {
+  height: 100dvh;
+  max-height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
 }
 
 h2 {
