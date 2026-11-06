@@ -378,6 +378,9 @@
   .term_title { display: none; }
   .term_chrome { grid-template-columns: auto 1fr; }
   .term_screen { font-size: 13px; padding: 12px; }
+  .term_suggestions button:not(.term_suggest_keep) {
+    display: none;
+  }
   .term_who dl div,
   .term_kv div,
   .term_help li,

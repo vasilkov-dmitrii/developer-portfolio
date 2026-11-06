@@ -297,6 +297,13 @@ export const Terminal = () => {
                             <button
                                 key={command}
                                 type="button"
+                                className={
+                                    command === 'help' ||
+                                    command === 'experience' ||
+                                    command === 'skills'
+                                        ? 'term_suggest_keep'
+                                        : undefined
+                                }
                                 onClick={() => {
                                     submit(command)
                                     setValue('')
