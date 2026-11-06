@@ -12,13 +12,54 @@ import gsm from '../../img/gsm.jpg'
 import crmSlide1 from '../../img/crmSlide1.jpg'
 import crmSlide2 from '../../img/crmSlide2.jpg'
 import aiChatCover from '../../img/softek.png'
-import spendly from '../../img/spendly_1.webp';
-import tg_bot_1 from '../../img/tg_chat_1.webp'
-import tg_bot_2 from '../../img/tg_chat_2.webp'
-import tg_bot_3 from '../../img/tg_chat_3.webp'
-import tg_bot_4 from '../../img/tg_chat_4.webp'
-import tg_bot_5 from '../../img/tg_chat_5.webp'
+import spendlyHome from '../../img/spendly-01-home.png'
+import spendlyLimits from '../../img/spendly-02-limits.png'
+import spendlyCategories from '../../img/spendly-03-categories.png'
+import spendlyHistory from '../../img/spendly-04-history.png'
+import spendlyReceipt from '../../img/spendly-05-receipt-items.png'
+import spendlyAddExpense from '../../img/spendly-06-add-expense.png'
+import eventRutaEvents from '../../img/event-ruta-01-events.png'
+import eventRutaSearch from '../../img/event-ruta-02-ai-search.png'
+import eventRutaCalendar from '../../img/event-ruta-03-calendar.png'
+import eventRutaMap from '../../img/event-ruta-04-map.png'
+import eventRutaDetails from '../../img/event-ruta-05-details.png'
+import eventRutaRestaurants from '../../img/event-ruta-06-restaurants.png'
 
+const spendlyProject: IWorkPage = {
+    projectTitle: 'Spendly — AI Receipt Scanner · Full Stack',
+    projectDescription:
+        'A full-stack AI expense tracker. Snap a receipt and Spendly turns it into a categorized expense — merchant, line items, and totals — with budgets, bank-statement import, and a live analytics dashboard on the web and Android.',
+    slides: [
+        spendlyHome,
+        spendlyLimits,
+        spendlyCategories,
+        spendlyHistory,
+        spendlyReceipt,
+        spendlyAddExpense,
+    ],
+    technologiesTitle:
+        'Full-stack application built with Next.js, React, and TypeScript. Prisma and PostgreSQL back the API, and an LLM layer handles receipt scanning and spending insights.',
+    technologiesList: [
+        'TypeScript',
+        'Next.js 16 (App Router)',
+        'React 19',
+        'Node.js',
+        'Prisma ORM',
+        'PostgreSQL',
+        'Next.js API Routes',
+        'Ant Design',
+        'Recharts',
+        'LLM receipt scanning',
+    ],
+    contributionsToProjectList: [
+        'Designed and shipped Spendly as a full-stack product: a Next.js dashboard, API routes, and a Prisma/PostgreSQL data layer.',
+        'Built AI receipt scanning that reads a photo and extracts the merchant, amount, date, category, and every line item.',
+        'Added bank-statement import, manual expense entry, category history, and monthly spending limits.',
+        'Delivered the analytics dashboard: category breakdowns, trends, and a month-ahead spending outlook.',
+        'Added an AI chat and insights over the user’s own expenses, with multi-currency support and English, Russian, and Spanish UI.',
+    ],
+    projectLink: 'https://getspendly.click/',
+}
 
 export const projectsConfig: Partial<Record<Routes, IWorkPage>> = {
     [Routes.GOODOK]: {
@@ -175,30 +216,43 @@ export const projectsConfig: Partial<Record<Routes, IWorkPage>> = {
         ],
         projectLink: '',
     },
-    [Routes.TG_CHAT_BOT]: {
-        projectTitle: 'Telegram Finance Assistant · Full Stack Engineer',
+    [Routes.SPENDLY]: spendlyProject,
+    [Routes.TG_CHAT_BOT]: spendlyProject,
+    [Routes.EVENT_RUTA]: {
+        projectTitle: 'EventRuta · Full Stack',
         projectDescription:
-            'Built a Telegram-first personal finance assistant with a Next.js dashboard, delivering expense capture, limits management, analytics, and savings forecasts.',
-        slides: [spendly, tg_bot_2, tg_bot_1, tg_bot_3, tg_bot_4, tg_bot_5],
+            'A full-stack AI guide to local events. Pick any city and EventRuta finds real upcoming concerts, festivals, exhibitions, and markets, then lays them out on a calendar, a map, and event pages.',
+        slides: [
+            eventRutaEvents,
+            eventRutaSearch,
+            eventRutaCalendar,
+            eventRutaMap,
+            eventRutaDetails,
+            eventRutaRestaurants,
+        ],
         technologiesTitle:
-            'The project is built using Next.js, React, and TypeScript with Prisma and PostgreSQL powering the bot and dashboard.',
+            'Full-stack application. The client is Next.js, React, and TypeScript; the API is NestJS with Prisma and PostgreSQL.',
         technologiesList: [
             'TypeScript',
-            'Next.js (App Router)',
-            'React',
+            'Next.js 16 (App Router)',
+            'React 19',
+            'styled-components',
+            'Ant Design Mobile',
+            'Leaflet',
+            'NestJS',
             'Prisma ORM',
             'PostgreSQL',
-            'Telegram Bot API (Telegraf)',
-            'Node.js',
-            'REST/Next API Routes',
+            'OpenAI',
+            'Zod',
+            'Vercel and Railway',
         ],
         contributionsToProjectList: [
-            'Implemented Telegram bot flows for tagging and categorizing expenses, syncing them to Prisma/PostgreSQL.',
-            'Added analytics for categories and tags, including 10-entry trend detection and month-ahead savings outlook.',
-            'Optimized expense aggregation by batching Prisma queries instead of per-item fetches to reduce DB load.',
-            'Built the dashboard pages for monthly summaries, limits management, and detailed expense breakdowns.',
-            'Hardened API error handling and edge-case coverage to keep the bot and dashboard stable in production.',
+            'Built EventRuta end to end: a Next.js frontend on Vercel and a NestJS REST API with Prisma and PostgreSQL on Railway.',
+            'Implemented AI web search that returns structured, source-linked events for any city, with hot picks and a short “why go” for each one.',
+            'Shipped calendar, map, and event-detail views, plus city pages and a restaurants section.',
+            'Added favorites, shareable event links, category and date filters, and results in English, Spanish, and Russian.',
+            'Set up Google and email sign-in and a mobile-first PWA, so the same product runs in the browser and as an installable app.',
         ],
-        projectLink: 'https://getspendly.click/',
+        projectLink: 'https://event-ruta.uk/',
     },
 }

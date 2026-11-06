@@ -16,7 +16,8 @@ import investing from '../../../img/investing.png'
 import softek from '../../../img/softek.png'
 import dcCms from '../../../img/dc_cms.jpg'
 import dcPartners from '../../../img/dc_partners.jpg'
-import tgChatBot from '../../../img/spendly_1.webp'
+import spendlyCover from '../../../img/spendly-01-home.png'
+import eventRutaCover from '../../../img/event-ruta-01-events.png'
 
 
 type WorkItem = {
@@ -32,12 +33,23 @@ type WorkItem = {
 
 const worksConfig: WorkItem[] = [
     {
-        name: 'Telegram Finance Assistant',
-        description: 'Full-stack finance tracker with Telegram bot integration, budget analytics, and spending insights.',
-        role: 'Lead Developer',
+        name: 'Spendly — AI Receipt Scanner',
+        description:
+            'Full-stack AI expense tracker. Scan a receipt, import a bank statement, set budgets, and see spending on a live dashboard.',
+        role: 'Full Stack Engineer',
         stack: ['Next.js', 'Node.js', 'Prisma', 'PostgreSQL'],
-        linkTo: Routes.TG_CHAT_BOT,
-        labelImg: tgChatBot,
+        linkTo: Routes.SPENDLY,
+        labelImg: spendlyCover,
+        featured: true,
+    },
+    {
+        name: 'EventRuta',
+        description:
+            'Full-stack AI guide to local events. Search any city, then browse concerts and festivals on a calendar, map, and detail pages.',
+        role: 'Full Stack Engineer',
+        stack: ['Next.js', 'NestJS', 'Prisma', 'PostgreSQL'],
+        linkTo: Routes.EVENT_RUTA,
+        labelImg: eventRutaCover,
         featured: true,
     },
     {
