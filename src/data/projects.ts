@@ -72,22 +72,22 @@ export const worksConfig: WorkItem[] = [
         featured: true,
     },
     {
-        name: "GOOD'OK Music Service",
+        name: "MTS GOOD'OK",
         slug: 'goodok',
         description:
-            'Music streaming service for MTS telecom — subscription management, playback, and content discovery.',
+            'MTS ringback tone service — subscribers replace the standard dial tone with a melody. Built from prototype to production and migrated to Next.js for SEO.',
         role: 'Senior Frontend Developer',
-        stack: ['Next.js', 'React', 'SSR'],
+        stack: ['Next.js', 'React', 'TypeScript'],
         linkTo: Routes.GOODOK,
         labelImg: goodokLabel,
     },
     {
-        name: 'Clients World MVP',
+        name: 'Client’s World Game MVP',
         slug: 'clients-world',
         description:
-            'Customer engagement platform with analytics dashboard and campaign management tools.',
+            'Browser game that introduces users to MTS Group products — daily quests, an in-game store with promo codes, and a virtual assistant chat.',
         role: 'Frontend Developer',
-        stack: ['React', 'TypeScript', 'REST API'],
+        stack: ['React', 'Effector', 'WebSockets'],
         linkTo: Routes.CLIENT_WORLD,
         labelImg: cwmtsLabel,
     },

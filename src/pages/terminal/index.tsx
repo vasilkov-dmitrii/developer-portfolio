@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './terminal.scss'
+import cv from '../../assets/cv.pdf'
 import {
     completeCommand,
     execute,
@@ -15,7 +16,7 @@ type Line = {
     node?: React.ReactNode
 }
 
-const BOOT = ['whoami', 'ls']
+const BOOT = ['whoami', 'skills', 'ls']
 
 const sleep = (ms: number) =>
     new Promise<void>((resolve) => {
@@ -188,6 +189,14 @@ export const Terminal = () => {
         setValue(next)
     }
 
+    const showProjects = () => {
+        gen.current += 1
+        interactiveRef.current = true
+        setInteractive(true)
+        submit('projects')
+        setValue('')
+    }
+
     const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Tab') {
             event.preventDefault()
@@ -256,6 +265,33 @@ export const Terminal = () => {
                         {clock}
                     </span>
                 </header>
+
+                <nav className="term_actions" aria-label="Quick links">
+                    <a
+                        className="term_action term_action_primary"
+                        href={cv}
+                        target="_blank"
+                        rel="noreferrer"
+                        download="Dmitrii-Vasilkov-CV.pdf"
+                    >
+                        Download CV
+                    </a>
+                    <a
+                        className="term_action"
+                        href="https://www.linkedin.com/in/dmitrii-vasilkov-a12b98172/"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                    >
+                        LinkedIn
+                    </a>
+                    <button
+                        type="button"
+                        className="term_action"
+                        onClick={showProjects}
+                    >
+                        Projects
+                    </button>
+                </nav>
 
                 <div className="term_screen" ref={screenRef} aria-live="polite">
                     {lines.map((line) => {
