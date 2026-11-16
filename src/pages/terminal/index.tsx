@@ -14,6 +14,16 @@ type Line = {
     kind: 'cmd' | 'out' | 'note'
     text?: string
     node?: React.ReactNode
+    key?: string
+}
+
+const commandKey = (command: string) => {
+    const [head = '', ...rest] = command.toLowerCase().split(/\s+/)
+    const arg = rest.join(' ')
+    if (head === 'projects' || head === 'ls') return 'ls'
+    if (head === 'cd') return `open ${arg}`.trim()
+    if (head === 'cat' && arg) return commandKey(arg.replace(/\.(txt|md)$/, ''))
+    return [head, arg].filter(Boolean).join(' ')
 }
 
 const BOOT = ['whoami', 'skills', 'ls']
@@ -71,10 +81,9 @@ export const Terminal = () => {
 
     const submit = (raw: string) => {
         const command = raw.trim()
+        const key = commandKey(command) || undefined
         if (interactiveRef.current) {
-            const name = command.split(/\s+/)[0]?.toLowerCase()
-            scrollMode.current =
-                name === 'projects' || name === 'ls' ? 'projects' : 'end'
+            scrollMode.current = key === 'ls' ? 'projects' : 'end'
         }
         let result: CommandResult | null = null
 
@@ -91,10 +100,17 @@ export const Terminal = () => {
         }
 
         setLines((prev) => [
-            ...prev,
-            { id: nid(), kind: 'cmd', text: raw },
+            ...(key ? prev.filter((line) => line.key !== key) : prev),
+            { id: nid(), kind: 'cmd', text: raw, key },
             ...(result?.output
-                ? [{ id: nid(), kind: 'out' as const, node: result.output }]
+                ? [
+                      {
+                          id: nid(),
+                          kind: 'out' as const,
+                          node: result.output,
+                          key,
+                      },
+                  ]
                 : []),
         ])
 
