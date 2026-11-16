@@ -1,28 +1,43 @@
 @use './styles/_colors.scss';
 @use './styles/_default.scss' as *;
+@use './styles/_layout.scss';
 
-/* ── Base reset ── */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Raleway-Regular", Arial, sans-serif;
+  font-family: "Raleway-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--_colors-text);
   background: var(--_colors-bg);
 }
 
+code {
+  font-family: "JetBrains Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
 a {
-  outline: none;
   text-decoration: none;
   color: var(--_colors-text);
   transition: color var(--_duration-fast) ease;
+}
+
+:focus-visible {
+  outline: 2px solid var(--_colors-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 p,
@@ -31,7 +46,10 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+dl,
+dd,
+blockquote {
   padding: 0;
   margin: 0;
 }
@@ -42,132 +60,86 @@ ul {
   padding: 0;
 }
 
-main {
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.app {
   width: 100%;
   background: var(--_colors-bg);
   background: var(--_colors-gradient-page);
   display: flex;
   flex-direction: column;
-  position: relative;
   min-height: 100vh;
   min-height: 100dvh;
 }
 
-main:has(.term) {
-  height: 100dvh;
-  max-height: 100dvh;
-  min-height: 0;
-  overflow: hidden;
+main {
+  flex: 1 0 auto;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 h2 {
-  @include h2_txt(var(--_font-3xl), 2px);
+  @include h2_txt(clamp(1.75rem, 4vw, 2.25rem), 0.2px);
   @include section-heading;
-  color: var(--_colors-text);
-}
-
-main,
-header,
-section,
-footer {
-  width: 100%;
-}
-
-/* ── Separator redesign ── */
-.separator {
-  padding: var(--_space-2xl) var(--_space-xl);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background: transparent;
-  overflow: hidden;
-
-  h2 {
-    font-size: var(--_font-lg);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--_colors-text-muted);
-    font-family: "Raleway-Medium", sans-serif;
-    font-weight: 600;
-    padding: 0;
-    margin: 0;
-    z-index: 2;
-
-    &::after {
-      display: none;
-    }
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: min(600px, 80%);
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--_colors-border-strong),
-      transparent
-    );
-  }
-}
-
-/* ── Font faces ── */
-@font-face {
-  font-family: "Raleway-SemiBoldItalic";
-  src: url("./fonts/Raleway-SemiBoldItalic.ttf");
-  font-display: swap;
 }
 
 @font-face {
   font-family: "Raleway-Regular";
-  src: url("./fonts/Raleway-Regular.ttf");
+  src: url("./fonts/Raleway-Regular.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Raleway-Bold";
-  src: url("./fonts/Raleway-Bold.ttf");
+  src: url("./fonts/Raleway-Bold.woff2") format("woff2");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Raleway-Medium";
-  src: url("./fonts/Raleway-Medium.ttf");
+  src: url("./fonts/Raleway-Medium.woff2") format("woff2");
   font-display: swap;
 }
 
-@font-face {
-  font-family: "FuturaPT-Heavy";
-  src: url("./fonts/FuturaPT-Heavy.ttf");
-  font-display: swap;
-}
-
-/* ── Scrollbar ── */
 ::-webkit-scrollbar-track {
   background-color: var(--_colors-bg);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: var(--_radius-full);
-  background: var(--_colors-gradient-accent);
+  background: var(--_colors-border-strong);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--_colors-accent);
+  background: var(--_colors-text-muted);
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
+  height: 8px;
 }
 
-/* ── Selection ── */
 ::selection {
-  background: var(--_colors-primary-soft);
+  background: rgba(124, 58, 237, 0.45);
   color: var(--_colors-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,0 +1,207 @@
+.hero {
+  width: 100%;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 5vw, 3rem) clamp(2.5rem, 5vw, 4rem);
+}
+
+.hero_inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.hero_copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero_status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  margin-bottom: var(--_space-lg);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: var(--_radius-full);
+  background: rgba(52, 211, 153, 0.08);
+  font-family: "Raleway-Medium", sans-serif;
+  font-size: var(--_font-sm);
+  color: #a7f3d0;
+
+  i {
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.8);
+  }
+}
+
+.hero_name {
+  font-family: "Raleway-Bold", sans-serif;
+  font-size: clamp(2.5rem, 5.4vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: var(--_colors-text);
+}
+
+.hero_role {
+  margin-top: var(--_space-sm);
+  font-family: "Raleway-Medium", sans-serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  color: #a78bfa;
+}
+
+.hero_tagline {
+  margin-top: var(--_space-lg);
+  max-width: 34rem;
+  font-size: var(--_font-md);
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+.hero_cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--_space-md);
+  margin-top: var(--_space-xl);
+}
+
+.hero_links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px var(--_space-lg);
+  margin-top: var(--_space-lg);
+  font-size: 0.9375rem;
+
+  a {
+    display: inline-block;
+    padding: 6px 0;
+  }
+}
+
+.hero_stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--_space-lg);
+  width: 100%;
+  margin-top: var(--_space-2xl);
+  padding-top: var(--_space-lg);
+  border-top: 1px solid var(--_colors-border);
+
+  dt {
+    font-family: "Raleway-Bold", sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.1;
+    color: var(--_colors-text);
+  }
+
+  dd {
+    margin-top: 6px;
+    font-size: var(--_font-sm);
+    line-height: 1.45;
+    color: var(--_colors-text-muted);
+  }
+}
+
+.hero_preview {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--_space-lg);
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: var(--_space-2xl);
+
+  li:nth-child(2) {
+    transform: translateY(var(--_space-2xl));
+  }
+}
+
+.hero_preview_card {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--_radius-lg);
+  border: 1px solid var(--_colors-border-strong);
+  background: #07090e;
+  box-shadow: 0 30px 70px var(--_colors-shadow-lg);
+  transition:
+    transform var(--_duration-base) var(--_ease-out),
+    border-color var(--_duration-base) ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-6px);
+    border-color: rgba(34, 211, 238, 0.55);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 14;
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+.hero_preview_caption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--_colors-border);
+  font-size: var(--_font-sm);
+
+  strong {
+    font-family: "Raleway-Bold", sans-serif;
+    font-weight: 700;
+    color: var(--_colors-text);
+  }
+
+  span {
+    color: var(--_colors-accent);
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero_inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Stacked, the previews would sit right above the same two project cards */
+  .hero_preview {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero_cta {
+    width: 100%;
+
+    .btn {
+      flex: 1 1 100%;
+    }
+  }
+
+  .hero_stats {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--_space-md);
+
+    div {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr;
+      align-items: baseline;
+      gap: var(--_space-md);
+    }
+
+    dd {
+      margin-top: 0;
+    }
+  }
+}

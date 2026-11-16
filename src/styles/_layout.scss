@@ -1,0 +1,108 @@
+.section {
+  width: 100%;
+  padding: clamp(3.5rem, 8vw, 6rem) clamp(1rem, 5vw, 3rem);
+  scroll-margin-top: 56px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.section_inner {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.section_lead {
+  font-size: var(--_font-md);
+  color: var(--_colors-text-muted);
+  max-width: 62ch;
+  margin: calc(-1 * var(--_space-md)) 0 var(--_space-2xl);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: var(--_radius-md);
+  border: 1px solid var(--_colors-border-strong);
+  background: transparent;
+  color: var(--_colors-text);
+  font-family: "Raleway-Bold", sans-serif;
+  font-size: 0.9375rem;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition:
+    background var(--_duration-fast) ease,
+    border-color var(--_duration-fast) ease,
+    transform var(--_duration-fast) ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--_colors-accent);
+    transform: translateY(-1px);
+  }
+}
+
+.btn_primary {
+  background: var(--_colors-primary);
+  border-color: transparent;
+  box-shadow: 0 8px 28px rgba(124, 58, 237, 0.35);
+
+  &:hover {
+    background: var(--_colors-primary-hover);
+    border-color: transparent;
+  }
+}
+
+.btn_small {
+  min-height: 38px;
+  padding: 0 16px;
+  font-size: var(--_font-sm);
+}
+
+.chip {
+  display: inline-block;
+  padding: 4px 12px;
+  font-family: "Raleway-Medium", sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+  background: var(--_colors-surface-glass);
+  border: 1px solid var(--_colors-border);
+  border-radius: var(--_radius-full);
+}
+
+.text_link {
+  color: var(--_colors-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(34, 211, 238, 0.4);
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+.skip_link {
+  position: absolute;
+  left: 12px;
+  top: -80px;
+  z-index: 100;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: var(--_radius-sm);
+  background: var(--_colors-accent);
+  color: var(--_colors-text-contrast);
+  font-family: "Raleway-Bold", sans-serif;
+  font-size: var(--_font-sm);
+  cursor: pointer;
+
+  &:focus {
+    top: 12px;
+  }
+}

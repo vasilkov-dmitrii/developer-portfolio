@@ -1,0 +1,116 @@
+.exp_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.exp_item {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: var(--_space-xl);
+  padding: var(--_space-xl) 0;
+  border-top: 1px solid var(--_colors-border);
+
+  &:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+}
+
+.exp_meta {
+  h3 {
+    font-family: "Raleway-Bold", sans-serif;
+    font-size: var(--_font-lg);
+    line-height: 1.3;
+    color: var(--_colors-text);
+  }
+
+  p {
+    margin-top: 4px;
+    font-size: var(--_font-sm);
+    color: var(--_colors-text-muted);
+  }
+}
+
+.exp_position {
+  font-family: "Raleway-Medium", sans-serif;
+  font-size: var(--_font-md);
+  color: var(--_colors-accent);
+}
+
+.exp_summary {
+  margin-top: 4px;
+  max-width: 68ch;
+  color: #b6c2d1;
+}
+
+.exp_achievements {
+  display: grid;
+  gap: 6px;
+  margin-top: var(--_space-md);
+  max-width: 72ch;
+
+  li {
+    position: relative;
+    padding-left: 22px;
+    color: var(--_colors-text);
+    line-height: 1.55;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 0.62em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--_colors-gradient-accent);
+    }
+  }
+}
+
+.exp_background {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--_space-xl);
+  margin-top: var(--_space-lg);
+  padding-top: var(--_space-xl);
+  border-top: 1px solid var(--_colors-border);
+
+  h3 {
+    font-family: "Raleway-Bold", sans-serif;
+    font-size: var(--_font-base);
+    color: var(--_colors-text);
+  }
+
+  p {
+    margin-top: 4px;
+    font-size: 0.9375rem;
+    color: var(--_colors-text-muted);
+  }
+}
+
+@media (max-width: 760px) {
+  .exp_item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--_space-sm);
+    padding: var(--_space-lg) 0;
+  }
+
+  .exp_meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px var(--_space-md);
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  .exp_background {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--_space-lg);
+  }
+}

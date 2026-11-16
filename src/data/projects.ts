@@ -1,23 +1,25 @@
 import { Routes } from '../routes'
-import goodokLabel from '../img/goodok.jpg'
-import cwmtsLabel from '../img/cw_title.png'
-import gsmLabel from '../img/gsm.jpg'
-import msc from '../img/mastercase.jpg'
-import masterscada from '../img/masterscada.jpg'
-import kngdy from '../img/kingdy.jpg'
-import mpoc from '../img/masteropc.jpg'
+import goodokLabel from '../img/goodok.webp'
+import cwmtsLabel from '../img/cw_title.webp'
+import gsmLabel from '../img/gsm.webp'
+import msc from '../img/mastercase.webp'
+import masterscada from '../img/masterscada.webp'
+import kngdy from '../img/kingdy.webp'
+import mpoc from '../img/masteropc.webp'
 import header from '../img/header.webp'
-import investing from '../img/investing.png'
-import softek from '../img/softek.png'
-import dcCms from '../img/dc_cms.jpg'
-import dcPartners from '../img/dc_partners.jpg'
-import spendlyCover from '../img/spendly-01-home.png'
-import eventRutaCover from '../img/event-ruta-01-events.png'
+import investing from '../img/investing.webp'
+import softek from '../img/softek.webp'
+import aiChatCover from '../img/ai-chat-cover.svg'
+import dcCms from '../img/dc_cms.webp'
+import dcPartners from '../img/dc_partners.webp'
+import spendlyCover from '../img/spendly-01-home.webp'
+import eventRutaCover from '../img/event-ruta-01-events.webp'
 
 export type WorkItem = {
     name: string
     slug: string
     description: string
+    outcome?: string
     role: string
     stack: string[]
     linkTo?: string
@@ -32,9 +34,11 @@ export const worksConfig: WorkItem[] = [
         slug: 'event-ruta',
         description:
             'Full-stack AI guide to local events. Search any city, then browse concerts and festivals on a calendar, map, and detail pages.',
+        outcome: 'Built end to end and live as an installable PWA.',
         role: 'Full Stack Engineer',
         stack: ['Next.js', 'NestJS', 'Prisma', 'PostgreSQL'],
         linkTo: Routes.EVENT_RUTA,
+        externalReference: 'https://event-ruta.uk/',
         labelImg: eventRutaCover,
         featured: true,
     },
@@ -43,21 +47,12 @@ export const worksConfig: WorkItem[] = [
         slug: 'spendly',
         description:
             'Full-stack AI expense tracker. Scan a receipt, import a bank statement, set budgets, and see spending on a live dashboard.',
+        outcome: 'Designed and shipped as a full product; live on web and Android.',
         role: 'Full Stack Engineer',
         stack: ['Next.js', 'Node.js', 'Prisma', 'PostgreSQL'],
         linkTo: Routes.SPENDLY,
+        externalReference: 'https://getspendly.click/',
         labelImg: spendlyCover,
-        featured: true,
-    },
-    {
-        name: 'AI-Powered Chat Interface',
-        slug: 'ai-chat',
-        description:
-            'Enterprise conversational UI with streaming responses, context memory, and multi-model support.',
-        role: 'Frontend Lead',
-        stack: ['React', 'Vercel AI SDK', 'AWS', 'TypeScript'],
-        linkTo: Routes.AI_CHAT,
-        labelImg: softek,
         featured: true,
     },
     {
@@ -65,6 +60,8 @@ export const worksConfig: WorkItem[] = [
         slug: 'banking',
         description:
             'White-label digital banking platform serving 100+ credit unions across North America.',
+        outcome:
+            'Playwright E2E suite cut manual QA time by 30%; unit coverage raised to 80%.',
         role: 'Senior Frontend Developer',
         stack: ['React', 'TypeScript', 'GraphQL', 'Apollo'],
         linkTo: Routes.D_BANKING,
@@ -72,24 +69,43 @@ export const worksConfig: WorkItem[] = [
         featured: true,
     },
     {
+        name: 'AI-Powered Chat Interface',
+        slug: 'ai-chat',
+        description:
+            'Enterprise conversational UI with streaming responses, context memory, and multi-model support.',
+        outcome:
+            'Shipped as an isolated microservice embedded into the banking app.',
+        role: 'Frontend Lead',
+        stack: ['React', 'Vercel AI SDK', 'AWS', 'TypeScript'],
+        linkTo: Routes.AI_CHAT,
+        labelImg: aiChatCover,
+        featured: true,
+    },
+    {
         name: "MTS GOOD'OK",
         slug: 'goodok',
         description:
-            'MTS ringback tone service — subscribers replace the standard dial tone with a melody. Built from prototype to production and migrated to Next.js for SEO.',
+            'MTS ringback tone service — subscribers replace the standard dial tone with a melody. Built from prototype to production.',
+        outcome:
+            'Next.js migration for SEO grew daily traffic from 2,800 to 4,500 visitors.',
         role: 'Senior Frontend Developer',
         stack: ['Next.js', 'React', 'TypeScript'],
         linkTo: Routes.GOODOK,
+        externalReference: 'https://goodok.mts.ru/',
         labelImg: goodokLabel,
+        featured: true,
     },
     {
         name: 'Client’s World Game MVP',
         slug: 'clients-world',
         description:
             'Browser game that introduces users to MTS Group products — daily quests, an in-game store with promo codes, and a virtual assistant chat.',
+        outcome: 'MVP delivered in six months, with 100+ tracked in-game events.',
         role: 'Frontend Developer',
         stack: ['React', 'Effector', 'WebSockets'],
         linkTo: Routes.CLIENT_WORLD,
         labelImg: cwmtsLabel,
+        featured: true,
     },
     {
         name: 'Global System Monitoring',
@@ -175,13 +191,5 @@ export const worksConfig: WorkItem[] = [
     },
 ]
 
-export const projectAliases: Record<string, string> = {
-    ruta: 'event-ruta',
-    events: 'event-ruta',
-    spendly: 'spendly',
-    chat: 'ai-chat',
-    softek: 'banking',
-    'digital-banking': 'banking',
-    crm: 'mastercase',
-    clients: 'clients-world',
-}
+export const featuredWorks = worksConfig.filter((item) => item.featured)
+export const earlierWorks = worksConfig.filter((item) => !item.featured)

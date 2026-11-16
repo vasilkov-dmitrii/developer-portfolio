@@ -1,25 +1,24 @@
 import React from 'react'
 import './footer.scss'
-import cv from '../../assets/cv.pdf'
+import { profile } from '../../data/profile'
 
 export const Footer = () => {
     return (
         <footer className="status_bar">
             <span className="status_id">
-                <i />
+                <i aria-hidden="true" />
                 dmitrii@portfolio
             </span>
-            <span className="status_loc">Spain · remote</span>
+            <span className="status_loc">{profile.location} · remote</span>
             <span className="status_links">
-                <a href="mailto:vasilkov.dmitrii24@gmail.com">email</a>
-                <a
-                    href="https://www.linkedin.com/in/dmitrii-vasilkov-a12b98172/"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                >
+                <a href={`mailto:${profile.email}`}>email</a>
+                <a href={profile.linkedin} target="_blank" rel="noreferrer noopener">
                     linkedin
                 </a>
-                <a href={cv} target="_blank" rel="noreferrer" download>
+                <a href={profile.github} target="_blank" rel="noreferrer noopener">
+                    github
+                </a>
+                <a href={profile.cv} download={profile.cvFileName}>
                     cv
                 </a>
             </span>

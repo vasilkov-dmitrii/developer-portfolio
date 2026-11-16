@@ -1,5 +1,5 @@
 @mixin h2_txt($fs, $ls) {
-  line-height: 1.3;
+  line-height: 1.25;
   font-size: $fs;
   letter-spacing: $ls;
   font-family: "Raleway-Bold", sans-serif;
@@ -7,33 +7,6 @@
   color: var(--_colors-text);
 }
 
-@mixin paddings($tops, $lefts) {
-  box-sizing: border-box;
-  padding: $tops $lefts;
-}
-
-/* ── Scroll-triggered fade-in ── */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(32px);
-  transition:
-    opacity var(--_duration-slow) var(--_ease-out),
-    transform var(--_duration-slow) var(--_ease-out);
-}
-
-.fade-in-up.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* stagger children */
-@for $i from 1 through 12 {
-  .fade-in-up.is-visible:nth-child(#{$i}) {
-    transition-delay: #{$i * 80}ms;
-  }
-}
-
-/* ── Section heading accent bar ── */
 @mixin section-heading {
   position: relative;
   display: inline-block;
@@ -50,4 +23,10 @@
     border-radius: var(--_radius-full);
     background: var(--_colors-gradient-accent);
   }
+}
+
+@mixin card {
+  border-radius: var(--_radius-lg);
+  background: var(--_colors-gradient-card);
+  border: 1px solid var(--_colors-border);
 }

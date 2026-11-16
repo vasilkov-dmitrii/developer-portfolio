@@ -1,0 +1,50 @@
+@use "../../../styles/default" as *;
+
+.contact_inner {
+  @include card;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: var(--_space-2xl);
+  align-items: center;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.contact_text {
+  max-width: 46ch;
+  font-size: var(--_font-md);
+  color: #cbd5e1;
+}
+
+.contact_email {
+  display: inline-block;
+  margin-top: var(--_space-md);
+  padding: 6px 0;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: var(--_font-base);
+  color: var(--_colors-accent);
+  overflow-wrap: anywhere;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+.contact_actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--_space-md);
+}
+
+@media (max-width: 860px) {
+  .contact_inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--_space-xl);
+  }
+}
+
+@media (max-width: 420px) {
+  .contact_actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

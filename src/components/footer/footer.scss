@@ -1,17 +1,17 @@
 .status_bar {
-  height: 42px;
-  flex: 0 0 42px;
-  margin: 0;
+  min-height: 46px;
+  flex: none;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 0 16px;
+  padding: 0 clamp(1rem, 5vw, 3rem);
   border-top: 1px solid rgba(148, 163, 184, 0.16);
   background: #07090e;
   color: #94a3b8;
   font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .status_id {
@@ -31,15 +31,25 @@
 
 .status_links {
   display: inline-flex;
-  gap: 14px;
+  gap: 16px;
 
-  a:hover {
-    color: #22d3ee;
+  a {
+    padding: 12px 0;
+    color: #cbd5e1;
+
+    &:hover {
+      color: #22d3ee;
+    }
   }
 }
 
 @media (max-width: 640px) {
-  .status_loc {
+  .status_loc,
+  .status_id {
     display: none;
+  }
+
+  .status_bar {
+    justify-content: center;
   }
 }

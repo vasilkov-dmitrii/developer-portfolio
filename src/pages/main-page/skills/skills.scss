@@ -1,98 +1,40 @@
-@use "../../../styles/_default" as *;
-
-.skills_section {
-  width: 100%;
-  padding: var(--_space-section) clamp(1rem, 8vw, 16rem);
-  background: transparent;
-
-  > h2 {
-    @include section-heading;
-  }
-}
-
-.skills_subtitle {
-  font-family: "Raleway-Regular", sans-serif;
-  font-size: var(--_font-base);
-  color: var(--_colors-text-muted);
-  margin-top: calc(-1 * var(--_space-md));
-  margin-bottom: var(--_space-2xl);
-}
-
-.skills_grid {
+.skills_list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--_space-xl);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--_space-2xl);
 }
 
-.skill_group {
-  padding: var(--_space-xl);
-  border-radius: var(--_radius-lg);
-  background: var(--_colors-gradient-card);
-  border: 1px solid var(--_colors-border);
-  transition: all var(--_duration-base) var(--_ease-out);
+.skills_row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: var(--_space-md);
+  align-items: start;
+  padding: var(--_space-md) 0;
+  border-top: 1px solid var(--_colors-border);
 
-  &:hover {
-    border-color: var(--_colors-border-strong);
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px var(--_colors-shadow);
-  }
-}
-
-.skill_group_header {
-  display: flex;
-  align-items: center;
-  gap: var(--_space-sm);
-  margin-bottom: var(--_space-lg);
-}
-
-.skill_group_icon {
-  font-size: var(--_font-xl);
-  color: var(--_colors-accent);
-  line-height: 1;
-}
-
-.skill_group_header h3 {
-  font-family: "Raleway-Bold", sans-serif;
-  font-size: var(--_font-lg);
-  color: var(--_colors-text);
-  margin: 0;
-  letter-spacing: 0.5px;
-}
-
-.skill_badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--_space-sm);
-}
-
-.skill_badge {
-  display: inline-block;
-  padding: 6px 14px;
-  font-family: "Raleway-Medium", sans-serif;
-  font-size: var(--_font-xs);
-  color: var(--_colors-text-muted);
-  background: var(--_colors-surface-glass);
-  border: 1px solid var(--_colors-border);
-  border-radius: var(--_radius-full);
-  letter-spacing: 0.3px;
-  transition: all var(--_duration-fast) ease;
-  cursor: default;
-
-  &:hover {
+  dt {
+    padding-top: 4px;
+    font-family: "Raleway-Bold", sans-serif;
+    font-size: var(--_font-base);
     color: var(--_colors-text);
-    border-color: var(--_colors-accent);
-    background: var(--_colors-accent-soft);
-    transform: translateY(-1px);
+  }
+
+  dd {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .skills_grid {
-    grid-template-columns: 1fr;
-    gap: var(--_space-lg);
+@media (max-width: 900px) {
+  .skills_list {
+    grid-template-columns: minmax(0, 1fr);
   }
+}
 
-  .skill_group {
-    padding: var(--_space-lg);
+@media (max-width: 520px) {
+  .skills_row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--_space-sm);
   }
 }

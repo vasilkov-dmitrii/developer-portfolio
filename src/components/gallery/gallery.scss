@@ -1,0 +1,24 @@
+.phone_gallery {
+  display: flex;
+  gap: var(--_space-lg);
+  margin: 0;
+  padding: 4px 4px var(--_space-md);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  list-style: none;
+
+  li {
+    flex: none;
+    scroll-snap-align: start;
+  }
+
+  img {
+    display: block;
+    height: clamp(380px, 62vh, 560px);
+    width: auto;
+    max-width: none;
+    border-radius: var(--_radius-md);
+    border: 1px solid var(--_colors-border);
+    background: #07090e;
+  }
+}

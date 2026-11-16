@@ -1,61 +1,114 @@
 import React from 'react'
 import './works.scss'
 import { Link } from 'react-router-dom'
-import { IWithRefChildren } from '../index'
-import { ResponsiveImage } from '../../../components/ResponsiveImage'
-import { worksConfig } from '../../../data/projects'
+import {
+    earlierWorks,
+    featuredWorks,
+    type WorkItem,
+} from '../../../data/projects'
 
-export const Works: React.FC<IWithRefChildren> = ({ refElement }) => {
-    return (
-        <section className="work_section" ref={refElement} id="works">
-            <div className="works_header">
-                <h2>Selected Projects</h2>
-                <p className="works_subtitle">
-                    A mix of enterprise products, side projects, and experiments —
-                    each one taught me something new
-                </p>
-            </div>
-            <div className="workWrapper">
-                {worksConfig.map((el) => (
-                    <div
-                        className={`work__prev ${el.featured ? 'work__featured' : ''}`}
-                        key={el.name}
-                    >
-                        <ResponsiveImage src={el.labelImg as string} alt={el.name} />
-                        <div className="work_overlay">
-                            <div className="work_stack">
-                                {el.stack.map((tech) => (
-                                    <span key={tech} className="work_stack_badge">{tech}</span>
-                                ))}
-                            </div>
-                            <div className="work_tech_block">
-                                <p className="work_name">{el.name}</p>
-                                <p className="work_desc">{el.description}</p>
-                                <span className="work_role">{el.role}</span>
-                            </div>
-                            <div className="work_actions">
-                                {el.linkTo && (
-                                    <Link to={el.linkTo} className="work_btn">
-                                        <span>Case Study →</span>
-                                    </Link>
-                                )}
-                                {el.externalReference && (
-                                    <a
-                                        href={el.externalReference}
-                                        target="_blank"
-                                        className="work_btn work_btn_outline"
-                                        rel="noreferrer"
-                                    >
-                                        <span>Live Demo ↗</span>
-                                    </a>
-                                )}
-                            </div>
-                        </div>
-                        {el.linkTo && (
-                            <Link to={el.linkTo} className="prev_link" aria-label={`View ${el.name}`} />
-                        )}
-                    </div>
+const ProjectCard = ({ project }: { project: WorkItem }) => (
+    <li className="work_card">
+        <div className="work_cover">
+            <img
+                src={project.labelImg}
+                alt=""
+                loading="lazy"
+                decoding="async"
+            />
+        </div>
+        <div className="work_body">
+            <p className="work_role">{project.role}</p>
+            <h3 className="work_name">
+                {project.linkTo ? (
+                    <Link to={`/${project.linkTo}`} className="work_main_link">
+                        {project.name}
+                    </Link>
+                ) : (
+                    project.name
+                )}
+            </h3>
+            <p className="work_desc">{project.description}</p>
+            {project.outcome && (
+                <p className="work_outcome">{project.outcome}</p>
+            )}
+            <ul className="work_stack" aria-label="Stack">
+                {project.stack.map((tech) => (
+                    <li key={tech} className="chip">
+                        {tech}
+                    </li>
                 ))}
+            </ul>
+            <div className="work_actions">
+                {project.linkTo && (
+                    <span className="work_action" aria-hidden="true">
+                        Case study →
+                    </span>
+                )}
+                {project.externalReference && (
+                    <a
+                        href={project.externalReference}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="work_action work_live"
+                        aria-label={`${project.name} live site`}
+                    >
+                        Live site ↗
+                    </a>
+                )}
+            </div>
+        </div>
+    </li>
+)
+
+const EarlierRow = ({ project }: { project: WorkItem }) => {
+    const title = project.linkTo ? (
+        <Link to={`/${project.linkTo}`} className="text_link">
+            {project.name}
+        </Link>
+    ) : project.externalReference ? (
+        <a
+            href={project.externalReference}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text_link"
+        >
+            {project.name} ↗
+        </a>
+    ) : (
+        project.name
+    )
+
+    return (
+        <li className="earlier_row">
+            <h4>{title}</h4>
+            <p>{project.description}</p>
+            <span>{project.stack.join(' · ')}</span>
+        </li>
+    )
+}
+
+export const Works = () => {
+    return (
+        <section className="section" id="works" tabIndex={-1}>
+            <div className="section_inner">
+                <h2>Selected projects</h2>
+                <p className="section_lead">
+                    Production work for banks and telecom, plus two products I
+                    built end to end.
+                </p>
+                <ul className="work_grid">
+                    {featuredWorks.map((project) => (
+                        <ProjectCard key={project.slug} project={project} />
+                    ))}
+                </ul>
+
+                <h3 className="earlier_title">Earlier work</h3>
+                <ul className="earlier_list">
+                    {earlierWorks.map((project) => (
+                        <EarlierRow key={project.slug} project={project} />
+                    ))}
+                </ul>
             </div>
         </section>
     )

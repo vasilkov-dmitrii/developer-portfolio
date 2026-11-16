@@ -1,21 +1,22 @@
 import React from 'react'
-import { useParams } from 'react-router'
+import { Navigate, useParams } from 'react-router-dom'
 import { WorkPage } from './work-page'
 import { Routes } from '../../routes'
 import { projectsConfig } from './projects-config'
 
 export const WorksPageSelector = () => {
-    const params: { id: Routes } = useParams() as { id: Routes }
-    const projectData = projectsConfig[params.id]
+    const { id } = useParams()
+    const projectData = projectsConfig[id as Routes]
 
-    if (!projectData) return null
-    return <WorkPage {...projectData} />
+    if (!projectData) return <Navigate to={Routes.MAIN} replace />
+    return <WorkPage key={id} {...projectData} />
 }
 
 export interface IWorkPage {
     projectTitle: string
     projectDescription: string
     slides: string[]
+    gallery?: 'phone'
     technologiesTitle: string
     technologiesList: string[]
     contributionsToProjectList: string[]

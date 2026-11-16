@@ -1,29 +1,29 @@
 import { Routes } from '../../routes'
 import { IWorkPage } from './index'
-import good_okSlide1 from '../../img/goodok_slide1.jpg'
-import good_okSlide2 from '../../img/goodok_slide2.jpg'
-import good_okSlide3 from '../../img/goodok_slide3.jpg'
-import cwSlide1 from '../../img/cw1.png'
-import cwSlide2 from '../../img/cw2.png'
-import cwSlide3 from '../../img/cw3.png'
-import cwSlide4 from '../../img/cw4.png'
-import cwSlide5 from '../../img/cw5.png'
-import gsm from '../../img/gsm.jpg'
-import crmSlide1 from '../../img/crmSlide1.jpg'
-import crmSlide2 from '../../img/crmSlide2.jpg'
-import aiChatCover from '../../img/softek.png'
-import spendlyHome from '../../img/spendly-01-home.png'
-import spendlyLimits from '../../img/spendly-02-limits.png'
-import spendlyCategories from '../../img/spendly-03-categories.png'
-import spendlyHistory from '../../img/spendly-04-history.png'
-import spendlyReceipt from '../../img/spendly-05-receipt-items.png'
-import spendlyAddExpense from '../../img/spendly-06-add-expense.png'
-import eventRutaEvents from '../../img/event-ruta-01-events.png'
-import eventRutaSearch from '../../img/event-ruta-02-ai-search.png'
-import eventRutaCalendar from '../../img/event-ruta-03-calendar.png'
-import eventRutaMap from '../../img/event-ruta-04-map.png'
-import eventRutaDetails from '../../img/event-ruta-05-details.png'
-import eventRutaRestaurants from '../../img/event-ruta-06-restaurants.png'
+import good_okSlide1 from '../../img/goodok_slide1.webp'
+import good_okSlide2 from '../../img/goodok_slide2.webp'
+import good_okSlide3 from '../../img/goodok_slide3.webp'
+import cwSlide1 from '../../img/cw1.webp'
+import cwSlide2 from '../../img/cw2.webp'
+import cwSlide3 from '../../img/cw3.webp'
+import cwSlide4 from '../../img/cw4.webp'
+import cwSlide5 from '../../img/cw5.webp'
+import gsm from '../../img/gsm.webp'
+import crmSlide1 from '../../img/crmSlide1.webp'
+import crmSlide2 from '../../img/crmSlide2.webp'
+import aiChatCover from '../../img/softek.webp'
+import spendlyHome from '../../img/spendly-01-home.webp'
+import spendlyLimits from '../../img/spendly-02-limits.webp'
+import spendlyCategories from '../../img/spendly-03-categories.webp'
+import spendlyHistory from '../../img/spendly-04-history.webp'
+import spendlyReceipt from '../../img/spendly-05-receipt-items.webp'
+import spendlyAddExpense from '../../img/spendly-06-add-expense.webp'
+import eventRutaEvents from '../../img/event-ruta-01-events.webp'
+import eventRutaSearch from '../../img/event-ruta-02-ai-search.webp'
+import eventRutaCalendar from '../../img/event-ruta-03-calendar.webp'
+import eventRutaMap from '../../img/event-ruta-04-map.webp'
+import eventRutaDetails from '../../img/event-ruta-05-details.webp'
+import eventRutaRestaurants from '../../img/event-ruta-06-restaurants.webp'
 
 const spendlyProject: IWorkPage = {
     projectTitle: 'Spendly — AI Receipt Scanner · Full Stack',
@@ -37,6 +37,7 @@ const spendlyProject: IWorkPage = {
         spendlyReceipt,
         spendlyAddExpense,
     ],
+    gallery: 'phone',
     technologiesTitle:
         'Full-stack application built with Next.js, React, and TypeScript. Prisma and PostgreSQL back the API, and an LLM layer handles receipt scanning and spending insights.',
     technologiesList: [
@@ -230,6 +231,7 @@ export const projectsConfig: Partial<Record<Routes, IWorkPage>> = {
             eventRutaDetails,
             eventRutaRestaurants,
         ],
+        gallery: 'phone',
         technologiesTitle:
             'Full-stack application. The client is Next.js, React, and TypeScript; the API is NestJS with Prisma and PostgreSQL.',
         technologiesList: [
